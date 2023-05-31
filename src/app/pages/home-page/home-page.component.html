@@ -1,0 +1,206 @@
+<div class="container mx-auto tracking-widest">
+    <!-- top banner -->
+    <div class="w-full">
+        <img src="https://bizweb.dktcdn.net/100/426/984/themes/900482/assets/slider_mb_1.jpg?1680855248967" alt=""
+            class="block md:hidden">
+        <img src="https://bizweb.dktcdn.net/100/426/984/themes/900482/assets/slider_1.jpg?1680855248967" alt=""
+            class="hidden md:block">
+    </div>
+
+    <!-- 3 danh muc noi bat -->
+    <div class="hidden my-5 md:h-[450px] md:grid md:grid-cols-3 gap-2 md:p-5 ">
+        <div class="overflow-hidden relative my-2">
+            <img class=" h-full object-cover hover:scale-125 transition duration-500 z-0"
+                src="https://bizweb.dktcdn.net/100/426/984/themes/900482/assets/ant_index_banner_1.jpg?1680855248967"
+                alt="">
+            <div class="absolute z-10 px-8 bottom-16">
+                <p class="text-2xl text-white mb-3">Sơ mi</p>
+                <button
+                    class="uppercase py-[14px] px-[30px] text-slate-600 bg-white  border hover:bg-transparent hover:text-white hover:border-white">
+                    <a href="">xem thêm</a>
+                </button>
+            </div>
+        </div>
+        <div class="overflow-hidden relative h-full my-2">
+            <img class="absolute hover:scale-125 transition duration-500 z-0"
+                src="https://bizweb.dktcdn.net/100/426/984/themes/900482/assets/ant_index_banner_2.jpg?1680855248967"
+                alt="">
+            <div class="absolute z-10 px-8 bottom-16">
+                <p class="text-2xl text-white mb-3">Quần nam</p>
+                <button
+                    class="uppercase px-[28px] py-[14px] text-slate-600 bg-white  border hover:bg-transparent hover:text-white hover:border-white">
+                    <a href="">xem thêm</a>
+                </button>
+            </div>
+        </div>
+        <div class="overflow-hidden relative h-full my-2">
+            <img class="absolute hover:scale-125 transition duration-500 z-0"
+                src="https://bizweb.dktcdn.net/100/426/984/themes/900482/assets/ant_index_banner_3.jpg?1680855248967"
+                alt="">
+            <div class="absolute z-10 px-8 bottom-16">
+                <p class="text-2xl text-white mb-3">Đồ thể thao</p>
+                <button
+                    class="uppercase px-[28px] py-[14px] text-slate-600 bg-white  border hover:bg-transparent hover:text-white hover:border-white">
+                    <a href="">xem thêm</a>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- section 1 -->
+    <div class="">
+        <a href="">
+            <p class="my-[40px] text-center text-2xl uppercase font-normal">hàng <span class="font-semibold">mới
+                    về</span></p>
+        </a>
+        <div class="my-4 grid grid-cols-2 md:grid-cols-4 gap-3 ">
+            <a href="" class="uppercase text-center my-4" *ngFor="let product of products">
+                <div class="my-5">
+                    <img src="{{product.thumbnail}}" class="my-5" alt="">
+                </div>
+
+                <p class="text-sm text-slate-300">Danh mục</p>
+                <p class="text-base font-semibold truncate">{{product.nameProduct}}</p>
+                <p class="text-sm font-semibold text-slate-900">{{product.price}} ₫</p>
+            </a>
+        </div>
+        <div class="flex justify-center">
+            <button
+                class="uppercase px-[28px] py-[14px] bg-slate-900 text-white  border hover:bg-white hover:text-slate-900 hover:border-slate-900 text-sm">
+                <a href="">xem tất cả . hàng mới về</a>
+            </button>
+        </div>
+    </div>
+
+    <!-- section 2 -->
+    <div class="">
+        <a href="">
+            <p class="my-[40px] text-center text-2xl uppercase font-normal">áo <span class="font-semibold">sơ mi</span>
+            </p>
+        </a>
+        <div class="my-4 grid grid-cols-2 md:grid-cols-4 gap-3 ">
+            <a href="" class="uppercase text-center  my-4" *ngFor="let product of products">
+                <img src="{{product.thumbnail}}" class="my-5" alt="">
+                <p class="text-sm text-slate-300">Danh mục</p>
+                <p class="text-base font-semibold truncate">{{product.nameProduct}}</p>
+                <p class="text-sm font-semibold text-slate-900">{{product.price}} ₫</p>
+            </a>
+        </div>
+        <div class="flex justify-center">
+            <button
+                class="uppercase px-[28px] py-[14px] bg-slate-900 text-white  border hover:bg-white hover:text-slate-900 hover:border-slate-900 text-sm">
+                <a href="">xem tất cả . áo sơ mi</a>
+            </button>
+        </div>
+    </div>
+
+    <!-- section 3 -->
+    <div class="">
+        <a href="">
+            <p class="my-[40px] text-center text-2xl uppercase font-normal">quần <span class="font-semibold">nam</span>
+            </p>
+        </a>
+        <div class="my-4 grid grid-cols-2 md:grid-cols-4 gap-3 ">
+            <a href="" class="uppercase text-center  my-4" *ngFor="let product of products">
+                <img src="{{product.thumbnail}}" class="my-5" alt="">
+                <p class="text-sm text-slate-300">Danh mục</p>
+                <p class="text-base font-semibold truncate">{{product.nameProduct}}</p>
+                <p class="text-sm font-semibold text-slate-900">{{product.price}} ₫</p>
+            </a>
+        </div>
+        <div class="flex justify-center">
+            <button
+                class="uppercase px-[28px] py-[14px] bg-slate-900 text-white  border hover:bg-white hover:text-slate-900 hover:border-slate-900 text-sm">
+                <a href="">xem tất cả . quần nam</a>
+            </button>
+        </div>
+    </div>
+
+    <!-- bottom banner -->
+    <img src="https://bizweb.dktcdn.net/100/426/984/themes/900482/assets/banner_new_2.jpg?1680855248967"
+        class="mt-5 px-2" alt="">
+
+    <!-- news section -->
+    <div class="my-5">
+        <a href="">
+            <p class="my-[40px] text-center text-2xl uppercase font-normal">
+                tin tức <span class="font-semibold">thời trang</span>
+            </p>
+        </a>
+        <div class="grid grid-rows-4">
+            <!-- artical 1 -->
+            <div class="flex h-20 md:h-40 border-b-2 border-slate-200 px-4 py-2">
+                <div class="overflow-hidden w-24 md:w-48 ">
+                    <img class="w-full h-full object-cover hover:scale-125 transition duration-500 z-0"
+                        src="https://bizweb.dktcdn.net/100/426/984/themes/900482/assets/ant_index_banner_1.jpg?1680855248967"
+                        alt="">
+                </div>
+                <div class="px-6 max-w-md md:max-w-2xl lg:max-w-3xl">
+                    <a class="uppercase truncate">TOP 5 THƯƠNG HIỆU SƠ MI CÔNG SỞ NAM ĐẸP HCM</a>
+                    <p class="text-sm font-light truncate mt-4">Áo sơ mi luôn là một item không thể thiếu dành cho các
+                        chàng công
+                        sở.
+                        Nay cùng theo LADOS điểm
+                        danh qua 5 thương hiệu sơ mi công sở nam đẹp tại HCM mà chàng không nên bỏ qua nhé.</p>
+                </div>
+            </div>
+            <!-- 2 -->
+            <div class="flex h-20 md:h-40 border-b-2 border-slate-200 px-4 py-2">
+                <div class="overflow-hidden w-24 md:w-48">
+                    <img class="w-full h-full object-cover hover:scale-125 transition duration-500 z-0"
+                        src="https://bizweb.dktcdn.net/thumb/large/100/426/984/articles/cach-nhuom-toc-tai-nha-len-mau-dep-8.png?v=1655112809317"
+                        alt="">
+                </div>
+                <div class="px-6 max-w-md md:max-w-lg lg:max-w-3xl">
+                    <a class="uppercase truncate">cách nhuộm tóc đẹp tại nhà</a>
+                    <p class="text-sm font-light truncate mt-4">Áo sơ mi luôn là một item không thể thiếu dành cho các
+                        chàng công
+                        sở.
+                        Nay cùng theo LADOS điểm
+                        danh qua 5 thương hiệu sơ mi công sở nam đẹp tại HCM mà chàng không nên bỏ qua nhé.</p>
+                </div>
+
+            </div>
+            <!-- 3 -->
+            <div class="flex h-20 md:h-40 border-b-2 border-slate-200 px-4 py-2">
+                <div class="overflow-hidden w-24 md:w-48">
+                    <img class="w-full h-full object-cover hover:scale-125 transition duration-500 z-0"
+                        src="https://bizweb.dktcdn.net/thumb/large/100/426/984/articles/5-trang-phuc-mua-he-chang-khong-nen-bo-qua.jpg?v=1654587286310"
+                        alt="">
+                </div>
+                <div class="px-6 max-w-md md:max-w-lg lg:max-w-3xl">
+                    <a class="uppercase truncate">5 trang phục mùa hè không nên bỏ qua</a>
+                    <p class="text-sm font-light truncate mt-4">Áo sơ mi luôn là một item không thể thiếu dành cho các
+                        chàng công
+                        sở.
+                        Nay cùng theo LADOS điểm
+                        danh qua 5 thương hiệu sơ mi công sở nam đẹp tại HCM mà chàng không nên bỏ qua nhé.</p>
+                </div>
+
+            </div>
+            <!-- 4 -->
+            <div class="flex h-20 md:h-40 border-b-2 border-slate-200 px-4 py-2">
+                <div class="overflow-hidden w-24 md:w-48">
+                    <img class="w-full h-full object-cover hover:scale-125 transition duration-500 z-0"
+                        src="https://bizweb.dktcdn.net/thumb/large/100/426/984/articles/jean-cotton-la-gi-2.png?v=1654331022263"
+                        alt="">
+                </div>
+                <div class="px-6 max-w-md md:max-w-lg lg:max-w-3xl">
+                    <a class="uppercase truncate">jeans cotton là gì?</a>
+                    <p class="text-sm font-light truncate mt-4">Áo sơ mi luôn là một item không thể thiếu dành cho các
+                        chàng công
+                        sở.
+                        Nay cùng theo LADOS điểm
+                        danh qua 5 thương hiệu sơ mi công sở nam đẹp tại HCM mà chàng không nên bỏ qua nhé.</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="flex justify-center my-8">
+            <button
+                class="uppercase px-[28px] py-[14px] bg-slate-900 text-white  border hover:bg-white hover:text-slate-900 hover:border-slate-900 text-sm">
+                <a href="">xem tất cả</a>
+            </button>
+        </div>
+    </div>
+</div>

@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { ListProductComponent } from './pages/list-product/list-product.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { ListProductComponent } from './pages/list-product/list-product.componen
     LayoutClientComponent,
     ProductDetailComponent,
     CartComponent,
-    ListProductComponent
+    ListProductComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

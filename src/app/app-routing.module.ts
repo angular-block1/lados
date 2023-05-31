@@ -4,13 +4,17 @@ import { LayoutClientComponent } from './layouts/layout-client/layout-client.com
 import { ListProductComponent } from './pages/list-product/list-product.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 
 const routes: Routes = [
-  {path:"", component:LayoutClientComponent,children:[
-    {path:"product", component:ListProductComponent},
-    {path:"product/:id", component:ProductDetailComponent},
-    {path:"cart", component:CartComponent},
-  ]}
+  {
+    path: "", component: LayoutClientComponent, children: [
+      { path: "", component: HomePageComponent },
+      { path: "product", component: ListProductComponent },
+      { path: "product/:id", component: ProductDetailComponent },
+      { path: "cart", component: CartComponent },
+    ]
+  }
 ];
 
 @NgModule({
