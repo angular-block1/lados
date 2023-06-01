@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { GalleryModule } from 'ng-gallery';
+import { GALLERY_CONFIG } from 'ng-gallery';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
@@ -12,6 +15,12 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
 import { CartComponent } from './pages/cart/cart.component';
 import { ListProductComponent } from './pages/list-product/list-product.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { NavComponent } from './pages/product-detail/component/nav/nav.component';
+import { CarouselComponent } from './pages/product-detail/component/carousel/carousel.component';
+import { DetailComponent } from './pages/product-detail/component/detail/detail.component';
+import { ButtonModule } from 'primeng/button';
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,15 +31,22 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
     ProductDetailComponent,
     CartComponent,
     ListProductComponent,
-    HomePageComponent
+    HomePageComponent,
+    NavComponent,
+    CarouselComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ButtonModule,
+    FontAwesomeModule
   ],
-  providers: [],
+  providers: [
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
