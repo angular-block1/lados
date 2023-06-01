@@ -5,11 +5,8 @@ import { ListProductComponent } from './pages/list-product/list-product.componen
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-<<<<<<< Updated upstream
 import { LoginComponent } from './pages/login/login.component';
-=======
 import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component';
->>>>>>> Stashed changes
 
 const routes: Routes = [
   {
@@ -18,11 +15,8 @@ const routes: Routes = [
       { path: "product", component: ListProductComponent },
       { path: "product/:id", component: ProductDetailComponent },
       { path: "cart", component: CartComponent },
-<<<<<<< Updated upstream
       { path: "login", component: LoginComponent },
-=======
       { path: "signup", component: SignUpPageComponent },
->>>>>>> Stashed changes
     ]
   }
 ];
