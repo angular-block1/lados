@@ -12,7 +12,11 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
 import { CartComponent } from './pages/cart/cart.component';
 import { ListProductComponent } from './pages/list-product/list-product.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+<<<<<<< Updated upstream
 import { LoginComponent } from './pages/login/login.component';
+=======
+import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component';
+>>>>>>> Stashed changes
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +28,11 @@ import { LoginComponent } from './pages/login/login.component';
     CartComponent,
     ListProductComponent,
     HomePageComponent,
+<<<<<<< Updated upstream
     LoginComponent
+=======
+    SignUpPageComponent
+>>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,
