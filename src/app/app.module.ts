@@ -12,6 +12,7 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
 import { CartComponent } from './pages/cart/cart.component';
 import { ListProductComponent } from './pages/list-product/list-product.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { LoginComponent } from './pages/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
     ProductDetailComponent,
     CartComponent,
     ListProductComponent,
-    HomePageComponent
+    HomePageComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
