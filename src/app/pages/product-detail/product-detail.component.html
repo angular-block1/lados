@@ -1,31 +1,43 @@
 <main className="container">
-  <app-nav></app-nav>
-  <div class="container grid grid-cols-2 gap-4">
-    <div class="w-full my-4"></div>
-    <div>
-      <app-detail></app-detail>
-    </div>
-  </div>
-  <div class="w-full my-4">
-    <p class="uppercase font-semibold text-xl">mô tả:</p>
-    <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus temporibus
-      blanditiis sint molestias. Laborum exercitationem animi repudiandae veniam
-      soluta fugit perspiciatis culpa, officiis aliquid, ex ullam, ducimus vero
-      corporis unde.
-    </p>
-  </div>
-  <!-- san phẩm liên quan -->
-  <section class="w-full my-4">
-    <p class="uppercase font-bold text-2xl text-center">sản phẩm liên quan</p>
-    <div class="w-full my-4 border border-black">
-      <owl-carousel-o [options]="customOptions">
-        <ng-container *ngFor="let slide of product.imageProducts">
-          <ng-template carouselSlide>
-            <img [src]="slide" alt="" />
-          </ng-template>
-        </ng-container>
-      </owl-carousel-o>
-    </div>
-  </section>
+	<app-nav></app-nav>
+	<div class="container grid grid-cols-2 gap-4">
+		<div class="w-full my-4">
+			<img
+				[src]="product.imageProducts[0]"
+				alt=""
+				class="w-full h-[490px] rounded-md border"
+			/>
+			<div class="w-full grid grid-cols-4 gap-2 my-2">
+				<div *ngFor="let slide of product.imageProducts">
+					<img
+						[src]="slide"
+						alt=""
+						class="w-full h-32 rounded-md border"
+					/>
+				</div>
+			</div>
+		</div>
+		<div>
+			<app-detail></app-detail>
+		</div>
+	</div>
+	<div class="w-full my-4">
+		<p class="uppercase font-semibold text-xl">mô tả:</p>
+		<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus temporibus blanditiis sint molestias. Laborum exercitationem animi repudiandae veniam soluta fugit perspiciatis culpa, officiis aliquid, ex ullam, ducimus vero corporis unde.</p>
+	</div>
+	<section class="w-full my-4">
+		<p class="uppercase font-bold text-2xl text-center">sản phẩm liên quan</p>
+		<div class="w-full my-4 border border-black">
+			<owl-carousel-o [options]="customOptions">
+				<ng-container *ngFor="let slide of product.imageProducts">
+					<ng-template carouselSlide>
+						<img
+							[src]="slide"
+							alt=""
+						/>
+					</ng-template>
+				</ng-container>
+			</owl-carousel-o>
+		</div>
+	</section>
 </main>
