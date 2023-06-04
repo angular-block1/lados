@@ -14,6 +14,12 @@ import { CartComponent } from './pages/cart/cart.component';
 import { ListProductComponent } from './pages/list-product/list-product.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginComponent } from './pages/login/login.component';
+import { DetailComponent } from './pages/product-detail/component/detail/detail.component';
+import { NavComponent } from './pages/product-detail/component/nav/nav.component';
+
+import { CarouselModule } from 'ngx-owl-carousel-o';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,13 +31,16 @@ import { LoginComponent } from './pages/login/login.component';
     CartComponent,
     ListProductComponent,
     HomePageComponent,
-    LoginComponent
+    LoginComponent,
+    DetailComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    CarouselModule 
   ],
   providers: [
     
