@@ -9,3 +9,9 @@
   box-sizing: border-box;
   font-family: "Quicksand", sans-serif !important;
 }
+
+@layer components {
+	.input {
+		@apply px-4 w-full h-[48px] rounded outline-none border border-gray-200 text-sm;
+	}
+}

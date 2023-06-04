@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,6 +21,7 @@ import { NavComponent } from './pages/product-detail/component/nav/nav.component
 import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
+import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +36,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     LoginComponent,
     DetailComponent,
     NavComponent,
+    SignUpPageComponent
   ],
   imports: [
     BrowserModule,
@@ -47,4 +50,4 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
