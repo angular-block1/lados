@@ -35,8 +35,8 @@ import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component
     HomePageComponent,
     LoginComponent,
     DetailComponent,
-    SignUpPageComponent,
-    NavComponent
+    NavComponent,
+    SignUpPageComponent
   ],
   imports: [
     BrowserModule,
