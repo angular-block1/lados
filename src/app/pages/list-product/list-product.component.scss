@@ -1,0 +1,20 @@
+.borderr{
+    border-left: none;
+    border-right: none;
+}
+
+.btn{
+    bottom: -200px;
+}
+
+
+.card:hover{
+    .btn{
+        z-index: 1000;
+        bottom: 0px;
+        transition: 0.5s all;
+    }
+    .text{
+        display: none;
+    }
+}
