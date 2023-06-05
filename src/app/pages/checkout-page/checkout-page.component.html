@@ -1,0 +1,202 @@
+<div class="container mx-auto w-[1200px] mt-[30px] max-w-full">
+	<form class="w-full grid grid-cols-1 sm:grid-cols-1 xl:grid-cols-[800px_repeat(1,_1fr)]">
+		<div class="w-full p-7">
+			<h2 class="font-semibold text-3xl text-[#2a9dcc]">Lados</h2>
+			<div class="grid grid-cols-1 xl:grid-cols-2 py-4 gap-10">
+				<div>
+					<h3 class="text-lg font-bold py-2">Thông tin nhận hàng</h3>
+					<div class="row w-full mt-4">
+						<label for="email">
+							<input
+								type="email"
+								name="email"
+								placeholder="Email*"
+								class="input"
+							/>
+							<span class="text-sm block text-red-400 font-medium mt-1">Vui lòng nhập thông tin</span>
+						</label>
+					</div>
+					<div class="row w-full mt-4">
+						<label for="fullname">
+							<input
+								type="text"
+								name="fullname"
+								placeholder="Tên người nhận hàng"
+								class="input"
+							/>
+							<span class="text-sm block text-red-400 font-medium mt-1">Vui lòng nhập thông tin </span>
+						</label>
+					</div>
+					<div class="row w-full mt-4">
+						<label for="phone">
+							<input
+								type="text"
+								name="phone"
+								placeholder="SĐT"
+								class="input"
+							/>
+							<span class="text-sm block text-red-400 font-medium mt-1">Vui lòng nhập thông tin </span>
+						</label>
+					</div>
+					<div class="row w-full mt-4">
+						<label for="address">
+							<input
+								type="text"
+								name="address"
+								placeholder="Địa chỉ cụ thể"
+								class="input"
+							/>
+							<span class="text-sm block text-red-400 font-medium mt-1">Vui lòng nhập thông tin </span>
+						</label>
+					</div>
+					<div class="row w-full mt-4">
+						<label for="city">
+							<select
+								id="small"
+								class="block px-4 w-full h-[48px] text-sm text-gray-900 border border-gray-200 rounded"
+							>
+								<option selected>Tỉnh thành</option>
+								<option value="US">Hà Nội</option>
+								<option value="CA">Canada</option>
+								<option value="FR">France</option>
+								<option value="DE">Germany</option>
+							</select>
+						</label>
+						<span class="text-sm block text-red-400 font-medium mt-1">Vui lòng nhập thông tin </span>
+					</div>
+					<div class="row w-full mt-4">
+						<label for="city">
+							<select
+								id="small"
+								class="block px-4 w-full h-[48px] text-sm text-gray-900 border border-gray-200 rounded"
+							>
+								<option selected>Phường xã</option>
+								<option value="US">Hà Nội</option>
+								<option value="CA">Canada</option>
+								<option value="FR">France</option>
+								<option value="DE">Germany</option>
+							</select>
+						</label>
+						<span class="text-sm block text-red-400 font-medium mt-1">Vui lòng nhập thông tin </span>
+					</div>
+					<div class="row w-full mt-4">
+						<label for="city">
+							<select
+								id="small"
+								class="block px-4 w-full h-[48px] text-sm text-gray-900 border border-gray-200 rounded"
+							>
+								<option selected>Quận huyện</option>
+								<option value="US">Hà Nội</option>
+								<option value="CA">Canada</option>
+								<option value="FR">France</option>
+								<option value="DE">Germany</option>
+							</select>
+						</label>
+						<span class="text-sm block text-red-400 font-medium mt-1">Vui lòng nhập thông tin </span>
+					</div>
+					<div class="row w-full mt-4">
+						<label for="note">
+							<textarea
+								rows="4"
+								class="block p-4 w-full h-[80px] text-sm rounded border outline-none"
+								placeholder="Ghi chú"
+							></textarea>
+						</label>
+					</div>
+				</div>
+				<div>
+					<h3 class="text-lg font-bold py-2">Thanh toán</h3>
+					<div class="row w-full mt-4">
+						<label
+							for="payment"
+							class="flex items-center border border-gray-200 rounded px-4 h-[48px]"
+						>
+							<input
+								type="radio"
+								value="1"
+								name="payment[]"
+								class="w-4 h-4 text-blue-600 bg-gray-100"
+							/>
+							<span class="text-sm font-normal ml-3">Thanh toán khi giao hàng (COD)</span>
+						</label>
+					</div>
+					<div class="row w-full mt-4">
+						<label
+							for="payment"
+							class="flex items-center border border-gray-200 rounded px-4 h-[48px]"
+						>
+							<input
+								type="radio"
+								value="1"
+								name="payment[]"
+								class="w-4 h-4 text-blue-600 bg-gray-100"
+							/>
+							<span class="text-sm font-normal ml-3">Thanh toán momo</span>
+						</label>
+					</div>
+					<div class="row w-full mt-4">
+						<label
+							for="payment"
+							class="flex items-center border border-gray-200 rounded px-4 h-[48px]"
+						>
+							<input
+								type="radio"
+								value="1"
+								name="payment[]"
+								class="w-4 h-4 text-blue-600 bg-gray-100"
+							/>
+							<span class="text-sm font-normal ml-3">Thanh toán payment</span>
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="p-7 border-l border-gray-300">
+			<h1 class="font-semibold text-2xl">Đơn hàng (1)</h1>
+			<div class="grid grid-cols-1 pt-4 mt-4 border-t border-gray-300">
+				<div class="row py-4 flex items-center gap-2 border-b border-gray-300">
+					<div class="w-[50px] h-[50px] relative after:content-['1'] after:absolute after:-top-3 after:z-10 after:-right-2 after:w-4 after:h-4 after:bg-[#2a9dcc] after:text-xs after:font-normal after:rounded-full text-white after:flex after:items-center after:justify-center">
+						<img
+							src="https://taimienphi.vn/tmp/cf/aut/anh-gai-xinh-1.jpg"
+							class="w-full h-full object-cover rounded border border-gray-300"
+							alt=""
+						/>
+					</div>
+					<p class="flex-1 text-sm font-normal">Sản phẩm chỉ mang tính chất họa vui lòng đừng</p>
+					<p class="text-sm font-normal text-gray-500">120.200đ</p>
+				</div>
+				<div class="row py-4 flex items-center gap-2 border-b border-gray-300">
+					<div class="w-[50px] h-[50px] relative after:content-['1'] after:absolute after:-top-3 after:z-10 after:-right-2 after:w-4 after:h-4 after:bg-[#2a9dcc] after:text-xs after:font-normal after:rounded-full text-white after:flex after:items-center after:justify-center">
+						<img
+							src="https://taimienphi.vn/tmp/cf/aut/anh-gai-xinh-1.jpg"
+							class="w-full h-full object-cover rounded border border-gray-300"
+							alt=""
+						/>
+					</div>
+					<p class="flex-1 text-sm font-normal">Sản phẩm chỉ mang tính chất họa vui lòng đừng</p>
+					<p class="text-sm font-normal text-gray-500">120.200đ</p>
+				</div>
+			</div>
+			<div class="grid grid-cols-1 pt-4 mt-4">
+				<div class="flex items-center justify-between">
+					<p class="text-sm font-normal">Tạm tính</p>
+					<p class="text-sm font-normal">120.304đ</p>
+				</div>
+				<div class="flex items-center justify-between mt-3">
+					<p class="text-sm font-normal">Phí vận chuyển</p>
+					<p class="text-sm font-normal">0đ</p>
+				</div>
+				<div class="flex items-center justify-between mt-4 border-t border-gray-300">
+					<p class="text-base font-normal mt-6">Tổng cộng</p>
+					<p class="text-xl font-semibold text-[#2a9dcc] mt-6">120.304đ</p>
+				</div>
+				<button
+					class="mt-4 btn--large bg-[#2a9dcc] text-white font-medium"
+					type="submit"
+				>
+					Đặt Hàng
+				</button>
+			</div>
+		</div>
+	</form>
+</div>

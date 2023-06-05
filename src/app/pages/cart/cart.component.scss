@@ -1,0 +1,23 @@
+.borderr{
+    border-left: none;
+    border-right: none;
+}
+.into_money{
+    border-bottom: 1px solid;
+}
+.up {
+    background: none;
+    --hover: #ccc;
+  }
+  .up:hover,
+  .up:focus {
+    box-shadow: inset 0 -3.25em 0 0 var(--hover);
+  }
+  .up {
+    color: var(--color);
+    transition: 0.25s;
+  }
+  .up:hover,
+  .up:focus {
+    color: #fff;
+  }
