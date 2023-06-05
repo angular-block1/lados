@@ -41,10 +41,10 @@ export class ProductDetailComponent {
 
   constructor(private productService: ProductService, private router: ActivatedRoute) {
     this.router.paramMap.subscribe(params => {
-      // const id = String(params.get('id'));
-      // this.productService.getOneProduct(id).subscribe(data => {
-      //   this.product = data;
-      // })
+      const id = String(params.get('id'));
+      this.productService.getProduct(id).subscribe(data => {
+        this.product = data;
+      })
     })
   }
 
