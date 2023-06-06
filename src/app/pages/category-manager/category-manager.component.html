@@ -1,1 +1,120 @@
-<p>category-manager works!</p>
+<div>
+	<h1 class="text-xl font-semibold py-4 border-b border-gray-950">Tất cả danh mục</h1>
+	<div class="relative mt-8 overflow-x-auto flex items-center gap-10">
+		<form
+			action=""
+			class="w-[300px]"
+			(ngSubmit)="handleSubmit()"
+		>
+			<div class="row w-full">
+				<label for="name">
+					<span class="text-sm font-semibold inline-block mb-2">Tiêu đề</span>
+					<input
+						type="text"
+						name="name"
+						placeholder="áo, quần, balo,..."
+						class="input"
+						required
+						#name="ngModel"
+						[(ngModel)]="category.name"
+						(input)="updateSlug()"
+					/>
+					<span
+						*ngIf="name.errors?.['required']"
+						class="text-sm block text-red-400 font-medium mt-1"
+						>Vui lòng nhập thông tin</span
+					>
+				</label>
+			</div>
+			<div class="row w-full mt-4">
+				<label for="slug">
+					<span class="text-sm font-semibold inline-block mb-2">Slug</span>
+					<input
+						type="text"
+						name="slug"
+						placeholder="ao, quan, balo,..."
+						class="input"
+						[(ngModel)]="category.slug"
+						disabled
+					/>
+				</label>
+			</div>
+			<div class="row w-full mt-4">
+				<button class="btn--blue font-semibold">{{ isUpdate ? "Cập nhật" : "Tạo mới" }}</button>
+			</div>
+		</form>
+		<table class="flex-1 text-sm text-left text-gray-500 dark:text-gray-400">
+			<thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+				<tr>
+					<th
+						scope="col"
+						class="px-6 py-3"
+					>
+						#
+					</th>
+					<th
+						scope="col"
+						class="px-6 py-3"
+					>
+						Tên
+					</th>
+					<th
+						scope="col"
+						class="px-6 py-3"
+					>
+						Slug
+					</th>
+					<th
+						scope="col"
+						class="px-6 py-3"
+					>
+						Ngày tạo
+					</th>
+					<th
+						scope="col"
+						class="px-6 py-3"
+					>
+						Ngày cập nhật
+					</th>
+					<th
+						scope="col"
+						class="px-6 py-3"
+					>
+						Hành động
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr
+					class="bg-white border-b dark:bg-gray-800"
+					*ngFor="let category of categories; index as i"
+				>
+					<th
+						scope="row"
+						class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+					>
+						{{ i + 1 }}
+					</th>
+					<td class="px-6 py-4">{{ category?.name }}</td>
+					<td class="px-6 py-4">{{ category?.slug }}</td>
+					<td class="px-6 py-4">{{ formatDate(category?.createdAt) }}</td>
+					<td class="px-6 py-4">{{ formatDate(category?.updatedAt) }}</td>
+					<td class="px-6 py-4 flex gap-4">
+						<button
+							class="btn--red"
+							(click)="handleDelete(category?._id)"
+						>
+							Xóa
+						</button>
+						<button
+							class="btn--blue"
+							(click)="handleUpdate(category?._id)"
+						>
+							Cập Nhập
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

@@ -1,51 +1,66 @@
 {
-    "products":[
-        {
-            "id":1,
-            "nameProduct":"ÁO SƠ MI NAM TRƠN DÀI TAY - 779",
-            "thumbnail":"https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727",
-            "imageProducts":["https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727","https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727","https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727"],
-            "price":20000,
-            "quantity":99,
-            "cateId":1
-        },
-        {
-            "id":2,
-            "nameProduct":"ÁO SƠ MI NAM TRƠN DÀI TAY - 779",
-            "thumbnail":"https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727",
-            "imageProducts":["https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727","https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727","https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727"],
-           "price":20000,
-            "quantity":99,
-            "cateId":1
-        },
-        {
-            "id":3,
-            "nameProduct":"ÁO SƠ MI NAM TRƠN DÀI TAY - 779",
-            "thumbnail":"https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727",
-            "imageProducts":["https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727","https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727","https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727"],
-            "price":20000,
-            "quantity":99,
-            "cateId":1
-        },
-        {
-            "id":4,
-            "nameProduct":"ÁO SƠ MI NAM TRƠN DÀI TAY - 779",
-            "thumbnail":"https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727",
-            "imageProducts":["https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727","https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727","https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727"],
-           "price":20000,
-            "quantity":99,
-            "cateId":1
-        }
-    ],
-    "category":[
-        {
-            "id":1,
-            "name":"ÁO"
-        },
-        {
-            "id":2,
-            "name":"Quần"
-        }
-    ]
-
+	"products": [
+		{
+			"id": 1,
+			"nameProduct": "ÁO SƠ MI NAM TRƠN DÀI TAY - 779",
+			"thumbnail": "https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727",
+			"imageProducts": ["https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727", "https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727", "https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727"],
+			"price": 20000,
+			"quantity": 99,
+			"cateId": 1
+		},
+		{
+			"id": 2,
+			"nameProduct": "ÁO SƠ MI NAM TRƠN DÀI TAY - 779",
+			"thumbnail": "https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727",
+			"imageProducts": ["https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727", "https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727", "https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727"],
+			"price": 20000,
+			"quantity": 99,
+			"categoryId": 1
+		},
+		{
+			"id": 3,
+			"nameProduct": "ÁO SƠ MI NAM TRƠN DÀI TAY - 779",
+			"thumbnail": "https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727",
+			"imageProducts": ["https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727", "https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727", "https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727"],
+			"price": 20000,
+			"quantity": 99,
+			"categoryId": 1
+		},
+		{
+			"id": 4,
+			"nameProduct": "ÁO SƠ MI NAM TRƠN DÀI TAY - 779",
+			"thumbnail": "https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727",
+			"imageProducts": ["https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727", "https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727", "https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/z2411209596052-6e136c774ebefb370e5e45bacdf7ad5b.jpg?v=1651807313727"],
+			"price": 20000,
+			"quantity": 99,
+			"categoryId": 1
+		}
+	],
+	"categories": [
+		{
+			"id": 1,
+			"_id": 1,
+			"name": "Áo update",
+			"slug": "Ao-update",
+			"createdAt": "2023-05-24T13:26:18.523Z",
+			"updatedAt": "2023-05-24T13:26:18.523Z"
+		},
+		{
+			"id": 2,
+			"_id": 2,
+			"name": "Quần",
+			"slug": "quan",
+			"createdAt": "2023-05-24T13:26:18.523Z",
+			"updatedAt": "2023-05-24T13:26:18.523Z"
+		},
+		{
+			"id": 3,
+			"_id": 3,
+			"name": "Balo",
+			"slug": "balo",
+			"createdAt": "2023-05-24T13:26:18.523Z",
+			"updatedAt": "2023-05-24T13:26:18.523Z"
+		}
+	]
 }
