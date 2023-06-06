@@ -1,31 +1,31 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { ApiService } from './api.service';
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { HttpClient } from "@angular/common/http";
+import { ApiService } from "./api.service";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class CategoryService {
+  constructor(private _http: HttpClient, private _api: ApiService) { }
 
-  constructor(private _api: ApiService) { }
   getCategories(): Observable<any> {
-    return this._api
-      .getTypeRequest(`/categories`);
+    return this._api.getTypeRequest("/categories");
   }
 
-  getCategory(id: string): Observable<any> {
-    return this._api.getTypeRequest("/categories/" + id);
+  getCategory(slug: string): Observable<any> {
+    return this._api.getTypeRequest(`/categories?slug=${slug}`);
   }
 
   createCategory(payload: any): Observable<any> {
-    return this._api.postTypeRequest("/categories/", payload);
+    return this._api.postTypeRequest("/categories", payload);
   }
 
   updateCategory(id: string, payload: any): Observable<any> {
-    return this._api.putTypeRequest("/categories/" + id, payload);
+    return this._api.putTypeRequest(`/categories/${id}`, payload);
   }
 
   deleteCategory(id: string): Observable<any> {
-    return this._api.deleteTypeRequest("/categories/" + id);
+    return this._api.deleteTypeRequest(`/categories/${id}`);
   }
 }
