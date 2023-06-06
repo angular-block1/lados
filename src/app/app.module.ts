@@ -22,6 +22,10 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
 import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ProductManagerComponent } from './pages/product-manager/product-manager.component';
+import { CategoryManagerComponent } from './pages/category-manager/category-manager.component';
+import { OrderManagerComponent } from './pages/order-manager/order-manager.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +40,11 @@ import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component
     LoginComponent,
     DetailComponent,
     NavComponent,
-    SignUpPageComponent
+    SignUpPageComponent,
+    DashboardComponent,
+    ProductManagerComponent,
+    CategoryManagerComponent,
+    OrderManagerComponent
   ],
   imports: [
     BrowserModule,
