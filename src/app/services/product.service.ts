@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
 import { ApiService } from "./api.service";
 import { Observable } from "rxjs";
 
@@ -7,10 +6,11 @@ import { Observable } from "rxjs";
 	providedIn: "root",
 })
 export class ProductService {
-	constructor(private _http: HttpClient, private _api: ApiService) {}
+	constructor(private _api: ApiService) { }
 
-	getProducts(): Observable<any> {
-		return this._api.getTypeRequest("/products");
+	getProducts({ _limit = 10, _page = 1, _order = "asc", _sort = "createdAt" }): Observable<any> {
+		return this._api
+			.getTypeRequest(`/products?_limit=${_limit}&_order=${_order}&_sort=${_sort}&_page=${_page}`);
 	}
 
 	getProduct(id: string): Observable<any> {

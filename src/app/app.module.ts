@@ -51,11 +51,11 @@ import { OrderManagerComponent } from './pages/order-manager/order-manager.compo
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    CarouselModule 
+    CarouselModule
   ],
   providers: [
-    
+
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

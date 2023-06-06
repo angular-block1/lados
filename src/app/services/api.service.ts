@@ -7,7 +7,7 @@ import { Observable } from "rxjs";
 })
 export class ApiService {
 	private baseUrl = "http://localhost:3000";
-	constructor(private _http: HttpClient) {}
+	constructor(private _http: HttpClient) { }
 
 	getTypeRequest(url: string): Observable<any> {
 		return this._http.get(`${this.baseUrl}${url}`);

@@ -8,6 +8,6 @@ import { ProductService } from "app/services/product.service";
 })
 export class ListProductComponent {
 	constructor(private productService: ProductService) {
-		this.productService.getProducts().subscribe((data) => console.log(data));
+		this.productService.getProducts({}).subscribe((data) => console.log(data));
 	}
 }
