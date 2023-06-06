@@ -10,6 +10,6 @@ import { ProductService } from "app/services/product.service";
 export class HomePageComponent {
 	products!: IProduct[];
 	constructor(private productService: ProductService) {
-		this.productService.getProducts().subscribe((data) => (this.products = data));
+		this.productService.getProducts({}).subscribe((data) => (this.products = data));
 	}
 }
