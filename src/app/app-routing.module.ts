@@ -13,6 +13,7 @@ import { DashboardComponent } from "./pages/dashboard/dashboard.component";
 import { ProductManagerComponent } from "./pages/product-manager/product-manager.component";
 import { CategoryManagerComponent } from "./pages/category-manager/category-manager.component";
 import { OrderManagerComponent } from "./pages/order-manager/order-manager.component";
+import { OrderdetailComponent } from "./pages/orderdetail/orderdetail.component";
 
 const routes: Routes = [
 	{
@@ -50,6 +51,10 @@ const routes: Routes = [
 			{
 				path: "orders",
 				component: OrderManagerComponent,
+			},
+			{
+				path: "orders/:id",
+				component: OrderdetailComponent,
 			},
 		],
 	},
