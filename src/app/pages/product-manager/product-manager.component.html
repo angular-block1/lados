@@ -1,4 +1,7 @@
 <div class="relative overflow-x-auto">
+    <div class="flex justify-end pb-4">
+        <button class="btn--green" routerLink="add">Thêm mới sản phẩm</button>
+    </div>
     <table class="w-full text-sm text-left texy-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -9,10 +12,13 @@
                     tên sản phẩm
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    danh mục
+                    giá
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    giá
+                    ngày tạo
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    cập nhật lần cuối
                 </th>
                 <th scope="col" class="px-6 py-3">
                     hành động
@@ -20,13 +26,19 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+                *ngFor="let product of products; index as i">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Apple MacBook Pro 17"
+                    {{i+1}}
                 </th>
-                <td class="px-6 py-4">Silver</td>
-                <td class="px-6 py-4">Laptop</td>
-                <td class="px-6 py-4">$2999</td>
+                <td class="px-6 py-4">{{product.name}}</td>
+                <td class="px-6 py-4">{{ product.price?.toLocaleString()}} VND</td>
+                <td class="px-6 py-4">dd mm yy</td>
+                <td class="px-6 py-4">dd mm yy</td>
+                <td class="px-6 py-4 flex gap-2">
+                    <button class="btn--red" (click)="onRemove(product.id)">Xóa</button>
+                    <button class="btn--blue" routerLink="{{product.id}}/update">Cập nhật</button>
+                </td>
             </tr>
         </tbody>
     </table>

@@ -1,0 +1,45 @@
+<div class="flex justify-center">
+    <h1 class="text-xl font-bold">THÊM MỚI SẢN PHẨM</h1>
+</div>
+
+<form class="" (ngSubmit)="handleSubmit()">
+    <div class="grid grid-cols-2 gap-4 py-8">
+        <div class="mb-6">
+            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tên sản phẩm</label>
+            <input type="text" id="name" class="input" name="nameProduct" required [(ngModel)]="product.name"
+                (input)="updateSlug()">
+        </div>
+        <div class="mb-6">
+            <label for="slug" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Slug</label>
+            <input type="text" disabled id="slug" class="input cursor-not-allowed" name="slug"
+                [(ngModel)]="product.slug">
+        </div>
+        <div class="mb-6">
+            <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Giá</label>
+            <input type="number" id="price" class="input" name="price" required [(ngModel)]="product.price" min="0">
+        </div>
+        <div class="mb-6">
+            <label for="quantity" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Số lượng</label>
+            <input type="number" id="quantity" class="input" name="quantity" required [(ngModel)]="product.stock"
+                min="0">
+        </div>
+        <div class="mb-6">
+            <label for="categoryId" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Danh
+                mục</label>
+            <select name="categoryId" id="categoryId" class="input" [(ngModel)]="product.category">
+                <option class="py-2 uppercase" *ngFor="let category of categories" value="{{category.id}}">
+                    {{category.name}}
+                </option>
+            </select>
+        </div>
+        <div class="mb-6">
+            <label for="imageProducts" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Hình
+                ảnh</label>
+            <input type="file" name="imageProducts" multiple class="input" required [(ngModel)]="product.images">
+        </div>
+    </div>
+
+    <div class="justify-end flex">
+        <button type="submit" class="btn--green uppercase">thêm mới</button>
+    </div>
+</form>

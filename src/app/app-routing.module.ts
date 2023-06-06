@@ -13,6 +13,8 @@ import { DashboardComponent } from "./pages/dashboard/dashboard.component";
 import { ProductManagerComponent } from "./pages/product-manager/product-manager.component";
 import { CategoryManagerComponent } from "./pages/category-manager/category-manager.component";
 import { OrderManagerComponent } from "./pages/order-manager/order-manager.component";
+import { ProductAddFormComponent } from "./pages/product-manager/product-add-form/product-add-form.component";
+import { ProductUpdateFormComponent } from "./pages/product-manager/product-update-form/product-update-form.component";
 
 const routes: Routes = [
 	{
@@ -42,6 +44,14 @@ const routes: Routes = [
 			{
 				path: "products",
 				component: ProductManagerComponent,
+			},
+			{
+				path: "products/add",
+				component: ProductAddFormComponent,
+			},
+			{
+				path: "products/:id/update",
+				component: ProductUpdateFormComponent
 			},
 			{
 				path: "categories",

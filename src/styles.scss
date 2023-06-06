@@ -16,15 +16,15 @@
 	}
 
 	.btn--small {
-		@apply px-4 w-full h-[36px] rounded outline-none text-xs;
+		@apply px-4 min-w-[120px] h-[36px] rounded outline-none text-xs;
 	}
 
 	.btn--medium {
-		@apply px-4 w-full h-[42px] rounded outline-none text-sm;
+		@apply px-4 min-w-[120px] h-[42px] rounded outline-none text-sm;
 	}
 
 	.btn--large {
-		@apply px-4 w-full h-[48px] rounded outline-none text-base;
+		@apply px-4 min-w-[120px] h-[48px] rounded outline-none text-base;
 	}
 
 	.btn--green {
