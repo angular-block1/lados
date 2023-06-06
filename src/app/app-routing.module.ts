@@ -15,6 +15,7 @@ import { CategoryManagerComponent } from "./pages/category-manager/category-mana
 import { OrderManagerComponent } from "./pages/order-manager/order-manager.component";
 import { ProductAddFormComponent } from "./pages/product-manager/product-add-form/product-add-form.component";
 import { ProductUpdateFormComponent } from "./pages/product-manager/product-update-form/product-update-form.component";
+import { OrderdetailComponent } from "./pages/orderdetail/orderdetail.component";
 
 const routes: Routes = [
 	{
@@ -60,6 +61,10 @@ const routes: Routes = [
 			{
 				path: "orders",
 				component: OrderManagerComponent,
+			},
+			{
+				path: "orders/:id",
+				component: OrderdetailComponent,
 			},
 		],
 	},
