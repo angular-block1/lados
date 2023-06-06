@@ -24,13 +24,18 @@
     "@fortawesome/fontawesome-free": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "animate.css": "^4.1.1",
+
+    "moment": "^2.29.4",
+=======
     "chart.js": "^4.3.0",
+
     "ng-gallery": "^9.0.0",
     "ngx-chartjs": "^0.0.1",
     "ngx-owl-carousel-o": "^16.0.0",
     "primeicons": "^6.0.1",
     "primeng": "^14.2.8-lts",
     "rxjs": "~7.8.0",
+    "slugify": "^1.6.6",
     "sweetalert2": "^11.7.5",
     "swiper": "^9.3.2",
     "tslib": "^2.3.0",
