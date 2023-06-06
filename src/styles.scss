@@ -4,10 +4,10 @@
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Quicksand", sans-serif !important;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Quicksand", sans-serif !important;
 }
 
 @layer components {
@@ -16,14 +16,30 @@
 	}
 
 	.btn--small {
-		@apply px-4 w-full h-[36px] rounded outline-none border border-gray-200 text-xs;
+		@apply px-4 w-full h-[36px] rounded outline-none text-xs;
 	}
 
 	.btn--medium {
-		@apply px-4 w-full h-[42px] rounded outline-none border border-gray-200 text-sm;
+		@apply px-4 w-full h-[42px] rounded outline-none text-sm;
 	}
 
 	.btn--large {
-		@apply px-4 w-full h-[48px] rounded outline-none border border-gray-200 text-base;
+		@apply px-4 w-full h-[48px] rounded outline-none text-base;
+	}
+
+	.btn--green {
+		@apply px-4 h-[36px] rounded outline-none text-xs text-[#0abb87] bg-[#0abb871a];
+	}
+
+	.btn--blue {
+		@apply px-4 h-[36px] rounded outline-none text-xs text-[#228be6] bg-[#228be61a];
+	}
+
+	.btn--red {
+		@apply px-4 h-[36px] rounded outline-none text-xs text-[#fd397a] bg-[#fd397a1a];
+	}
+
+	.btn--yellow {
+		@apply px-4 h-[36px] rounded outline-none text-xs text-[#ffe066] bg-[#ffe0661a];
 	}
 }
