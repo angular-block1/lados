@@ -28,6 +28,7 @@ import { CategoryManagerComponent } from './pages/category-manager/category-mana
 import { OrderManagerComponent } from './pages/order-manager/order-manager.component';
 import { ProductAddFormComponent } from './pages/product-manager/product-add-form/product-add-form.component';
 import { ProductUpdateFormComponent } from './pages/product-manager/product-update-form/product-update-form.component';
+import { Chart } from 'chart.js';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +56,7 @@ import { ProductUpdateFormComponent } from './pages/product-manager/product-upda
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    CarouselModule
+    CarouselModule,
   ],
   providers: [
 
