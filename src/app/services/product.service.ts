@@ -13,8 +13,8 @@ export class ProductService {
 			.getTypeRequest(`/products?_limit=${_limit}&_order=${_order}&_sort=${_sort}&_page=${_page}`);
 	}
 
-	getProduct(id: string): Observable<any> {
-		return this._api.getTypeRequest("/products/" + id);
+	getProduct(slug: string): Observable<any> {
+		return this._api.getTypeRequest("/products/" + slug);
 	}
 
 	createProduct(payload: any): Observable<any> {

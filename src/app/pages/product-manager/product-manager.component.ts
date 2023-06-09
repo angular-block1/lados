@@ -11,7 +11,6 @@ export class ProductManagerComponent {
   products: IProduct[] = []
   constructor(private productService: ProductService) {
     this.productService.getProducts({}).subscribe(response => this.products = response.data)
-    console.log(this.products)
   }
   onRemove(_id: any) {
     if (window.confirm("Bạn chắc chắn muốn xóa chứ?")) {

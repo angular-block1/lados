@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ICategory } from 'app/interfaces/Category';
 import { IProduct } from 'app/interfaces/Product';
 import { CategoryService } from 'app/services/category.service';
@@ -18,13 +18,15 @@ export class ProductUpdateFormComponent {
     images: [""],
     category: "",
     stock: 0,
-    slug: ""
+    slug: "",
+    description: ""
   }
   categories: ICategory[] = []
   constructor(
     private productService: ProductService,
     private categoryService: CategoryService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.route.paramMap.subscribe(param => {
       const id = param.get('id')
@@ -34,13 +36,10 @@ export class ProductUpdateFormComponent {
 
     })
     this.categoryService.getCategories().subscribe(response => this.categories = response.data)
-    console.log(this.categories)
   }
   handleSubmit() {
-    this.productService.updateProduct(this.product._id as string, this.productService.createProduct(this.product).subscribe((response) => {
-      this.categories = response.data
-    })).subscribe((response) => {
-      this.categories = response.data
+    this.productService.updateProduct(this.product._id as string, this.product).subscribe(() => {
+      this.router.navigateByUrl("admin/products")
     })
   }
   updateSlug() {
