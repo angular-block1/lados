@@ -14,7 +14,7 @@ export class CategoryService {
   }
 
   getCategory(slug: string): Observable<any> {
-    return this._api.getTypeRequest(`/categories?slug=${slug}`);
+    return this._api.getTypeRequest(`/categories/${slug}`);
   }
 
   createCategory(payload: any): Observable<any> {

@@ -13,7 +13,7 @@ export class ProductDetailComponent {
   product: IProduct = {
 
   } as IProduct
-  
+
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: false,
@@ -41,8 +41,8 @@ export class ProductDetailComponent {
 
   constructor(private productService: ProductService, private router: ActivatedRoute) {
     this.router.paramMap.subscribe(params => {
-      const id = String(params.get('id'));
-      this.productService.getProduct(id).subscribe(data => {
+      const slug = String(params.get('slug'));
+      this.productService.getProduct(slug).subscribe(data => {
         this.product = data;
       })
     })

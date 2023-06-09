@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ICategory } from 'app/interfaces/Category';
 import { IProduct } from 'app/interfaces/Product';
 import { CategoryService } from 'app/services/category.service';
@@ -22,13 +23,14 @@ export class ProductAddFormComponent {
   categories: ICategory[] = []
   constructor(
     private productService: ProductService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private router: Router
   ) {
     this.categoryService.getCategories().subscribe(response => this.categories = response.data)
   }
   handleSubmit() {
-    this.productService.createProduct(this.product).subscribe((response) => {
-      this.categories = response.data
+    this.productService.createProduct(this.product).subscribe(() => {
+      this.router.navigateByUrl("admin/products")
     })
   }
   updateSlug() {
