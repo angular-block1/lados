@@ -16,6 +16,8 @@ import { OrderManagerComponent } from "./pages/order-manager/order-manager.compo
 import { ProductAddFormComponent } from "./pages/product-manager/product-add-form/product-add-form.component";
 import { ProductUpdateFormComponent } from "./pages/product-manager/product-update-form/product-update-form.component";
 import { OrderdetailComponent } from "./pages/orderdetail/orderdetail.component";
+import { OrderListsPageComponent } from "./pages/order-lists-page/order-lists-page.component";
+import { UserOrderDetailPageComponent } from "./pages/user-order-detail-page/user-order-detail-page.component";
 
 const routes: Routes = [
 	{
@@ -26,6 +28,8 @@ const routes: Routes = [
 			{ path: "products", component: ListProductComponent },
 			{ path: "product/:id", component: ProductDetailComponent },
 			{ path: "cart", component: CartComponent },
+			{ path: "orders", component: OrderListsPageComponent },
+			{ path: "orders/:id", component: UserOrderDetailPageComponent },
 			{ path: "login", component: LoginComponent },
 			{ path: "signup", component: SignUpPageComponent },
 		],

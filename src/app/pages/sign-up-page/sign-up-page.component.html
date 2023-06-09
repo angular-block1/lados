@@ -1,4 +1,4 @@
-<form class="w-full max-w-2xl mx-auto my-5 p-4 ">
+<form class="w-full max-w-2xl mx-auto my-5 p-4 " (ngSubmit)="onHandleSubmit()">
     <div class="text-center mb-5">
         <h1 class="text-3xl font-semibold mb-2">ĐĂNG KÝ TÀI KHOẢN</h1>
         <p class="text-base">Nếu chưa có tài khoản vui lòng đăng ký tại đây</p>
@@ -13,6 +13,7 @@
             type="email"
             placeholder="Nhập họ tên"
             required
+            [(ngModel)]="auth.name" name="name"
           />
     </div>
 
@@ -25,6 +26,7 @@
             type="email"
             placeholder="Email"
             required
+            [(ngModel)]="auth.email" name="email"
           />
     </div>
 
@@ -37,6 +39,7 @@
             type="password"
             placeholder="Nhập mật khẩu"
             required
+            [(ngModel)]="auth.password" name="password"
           />
     </div>
 
@@ -49,6 +52,7 @@
         type="password"
         placeholder="Xác nhận mật khẩu"
         required
+        [(ngModel)]="auth.confirmpassword" name="confirmpassword"
       />
     </div>
     <div class="flex justify-center">
