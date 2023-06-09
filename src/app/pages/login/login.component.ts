@@ -14,8 +14,6 @@ auth:Iauth={
 }
 constructor(private authservice:AuthService){}
 onHandleSubmit(){
-  console.log(this.auth);
-  
   this.authservice.sigin(this.auth).subscribe(()=>console.log("oke"));
 }
 }

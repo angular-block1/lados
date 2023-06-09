@@ -15,6 +15,6 @@ export class AuthService {
     return this._api.postTypeRequest("/auth/signin", payload);
   }
   signup(payload: any): Observable<any> {
-    return this._api.postTypeRequest("/auth/signin", payload);
+    return this._api.postTypeRequest("/auth/signup", payload);
   }
 }
