@@ -18,7 +18,8 @@ export class ProductUpdateFormComponent {
     images: [""],
     category: "",
     stock: 0,
-    slug: ""
+    slug: "",
+    description: ""
   }
   categories: ICategory[] = []
   constructor(
