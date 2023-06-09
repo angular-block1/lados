@@ -38,8 +38,8 @@
                 <td class="px-6 py-4">dd mm yy</td>
                 <td class="px-6 py-4">dd mm yy</td>
                 <td class="px-6 py-4 flex gap-2">
-                    <button class="btn--red" (click)="onRemove(product.id)">Xóa</button>
-                    <button class="btn--blue" routerLink="{{product.id}}/update">Cập nhật</button>
+                    <button class="btn--red" (click)="onRemove(product._id)">Xóa</button>
+                    <a routerLink="{{product._id}}/update"><button class="btn--blue">Cập nhật</button></a>
                 </td>
             </tr>
         </tbody>

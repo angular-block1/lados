@@ -20,7 +20,7 @@ export class CategoryManagerComponent {
 	isUpdate: boolean = false;
 
 	constructor(private categoryService: CategoryService) {
-		this.categoryService.getCategories().subscribe((data) => (this.categories = data));
+		this.categoryService.getCategories().subscribe((response) => (this.categories = response.data));
 	}
 
 	formatDate(value: string) {

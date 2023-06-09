@@ -29,14 +29,19 @@ export class ProductUpdateFormComponent {
     this.route.paramMap.subscribe(param => {
       const id = param.get('id')
       if (id) {
-        this.productService.getProduct(id).subscribe(data => this.product = data)
+        this.productService.getProduct(id).subscribe(response => this.product = response.data)
       }
 
     })
-    this.categoryService.getCategories().subscribe(data => this.categories = data)
+    this.categoryService.getCategories().subscribe(response => this.categories = response.data)
+    console.log(this.categories)
   }
   handleSubmit() {
-    console.log(this.product)
+    this.productService.updateProduct(this.product._id as string, this.productService.createProduct(this.product).subscribe((response) => {
+      this.categories = response.data
+    })).subscribe((response) => {
+      this.categories = response.data
+    })
   }
   updateSlug() {
     this.product.slug = slugify(this.product.name as string, "-")
