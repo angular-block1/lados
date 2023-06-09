@@ -37,7 +37,11 @@ export class ProductUpdateFormComponent {
     console.log(this.categories)
   }
   handleSubmit() {
-    console.log(this.product)
+    this.productService.updateProduct(this.product._id as string, this.productService.createProduct(this.product).subscribe((response) => {
+      this.categories = response.data
+    })).subscribe((response) => {
+      this.categories = response.data
+    })
   }
   updateSlug() {
     this.product.slug = slugify(this.product.name as string, "-")
