@@ -1,55 +1,83 @@
 <div class="my-5">
-    <div class="border borderr py-2">
-        <ul class="flex">
-            <li class="text-sm"><a href="">Trang chủ > </a></li>
-            <li class="font-bold pl-2 text-sm">Giỏ hàng</li>
-        </ul>
-    </div>
-    <div>
-        <form action="">
-            <div class="mt-4">
-                <div class="flex items-center">
-                    <h1 class="text-2xl leading-7 uppercase font-medium">Giỏ hàng</h1>
-                    <p class="px-3">(1 sản phẩm)</p>
-                </div>
-            </div>
-            <div class="flex">
-                <div class="">
-                    <img class="w-[180px] h-[180px]" src="https://bizweb.dktcdn.net/thumb/medium/100/426/984/products/0123a7b8a30234cbff048a731c013444-1684898297401.jpg" alt="">
-                </div>
-                <div class="items-center ml-5 flex w-[643px]">
-                    <div class="w-[350px] items-center">
-                        <a class="text-sm font-semibold indent-2">Áo thun polo thể thao vải poly lạnh LADOS - LD9137 - XANH ĐEN / M</a>
-                        <div>
-                            <button class="text-orange-300">Xóa</button>
-                        </div>
-                    </div>
-                    <div>
-                        <span class="text-orange-300">139.000₫</span>
-                    </div>
-                    <div class="ml-10">
-                        <input type="number" class="border w-[30px] h-[30px]" value="0">
-                    </div>
-                </div>
-                <div class="w-[290px]">
-                    <div class="flex  into_money pb-5 justify-between">
-                        <span class="text-sm font-semibold">Tạm tính:</span>
-                        <p class=" text-sm font-semibold">139.000₫</p>
-                    </div>
-                    <div class="flex pt-5 justify-between">
-                        <span class="text-xl font-semibold">Thành tiền:</span>
-                        <p class=" text-xl font-semibold">139.000₫</p>
-                    </div>
-                    <div class="mt-5">
-                        <button type="" class="up w-[290px] h-[50px] border">
-                            Thanh toán
-                          </button>
-                        <button type="" class="up w-[290px] h-[50px] border mt-2">
-                            Tiếp tục mua hàng
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
+	<div class="border borderr py-2">
+		<ul class="flex">
+			<li class="text-sm"><a href="">Trang chủ > </a></li>
+			<li class="font-bold pl-2 text-sm">Giỏ hàng</li>
+		</ul>
+	</div>
+	<div>
+		<form action="">
+			<div class="mt-4">
+				<div class="flex items-center">
+					<h1 class="text-2xl leading-7 uppercase font-medium">Giỏ hàng</h1>
+					<p class="px-3">({{ total }} sản phẩm)</p>
+				</div>
+			</div>
+			<div class="flex mt-4 gap-12">
+				<div class="flex-1 flex flex-col gap-4">
+					<div
+						*ngFor="let product of cart?.products"
+						class="flex pb-2 border-b border-gray-300"
+					>
+						<div class="w-[120px] h-[120px] rounded overflow-hidden">
+							<img
+								class="w-full h-auto object-cover"
+								src="{{ product.image }}"
+								alt=""
+							/>
+						</div>
+						<div class="items-center ml-5 flex w-[643px]">
+							<div class="w-[350px] items-center">
+								<a class="text-sm font-semibold indent-2">{{ product.name }}</a>
+								<div>
+									<button
+										class="text-orange-300"
+										[swal]="['Xóa thành công', '', 'success']"
+										(click)="deleteCart(product.id)"
+									>
+										Xóa
+									</button>
+								</div>
+							</div>
+							<div>
+								<span class="text-orange-300">{{ formatNumber(product.price) }}₫</span>
+							</div>
+							<div class="ml-10">
+								<input
+									type="number"
+									class="border input w-[90px]"
+									value="{{ product.quantity }}"
+									(input)="updateQuantity(product?.id, $event.target)"
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="w-[290px]">
+					<div class="flex into_money pb-5 justify-between">
+						<span class="text-sm font-semibold">Tạm tính:</span>
+						<p class="text-sm font-semibold">{{ formatNumber(bill) }}₫</p>
+					</div>
+					<div class="flex pt-5 justify-between">
+						<span class="text-xl font-semibold">Thành tiền:</span>
+						<p class="text-xl font-semibold">{{ formatNumber(bill) }}₫</p>
+					</div>
+					<div class="mt-5">
+						<button
+							type=""
+							class="up w-[290px] h-[50px] border"
+						>
+							Thanh toán
+						</button>
+						<button
+							type=""
+							class="up w-[290px] h-[50px] border mt-2"
+						>
+							Tiếp tục mua hàng
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
 </div>
