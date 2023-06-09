@@ -10,12 +10,13 @@ import { ProductService } from 'app/services/product.service';
 export class ProductManagerComponent {
   products: IProduct[] = []
   constructor(private productService: ProductService) {
-    this.productService.getProducts({}).subscribe(data => this.products = data)
+    this.productService.getProducts({}).subscribe(response => this.products = response.data)
+    console.log(this.products)
   }
-  onRemove(id: any) {
+  onRemove(_id: any) {
     if (window.confirm("Bạn chắc chắn muốn xóa chứ?")) {
-      this.productService.deteProduct(id).subscribe(() => {
-        this.products = this.products.filter(data => data.id != id)
+      this.productService.deteProduct(_id).subscribe(() => {
+        this.products = this.products.filter(data => data._id != _id)
       })
     }
 

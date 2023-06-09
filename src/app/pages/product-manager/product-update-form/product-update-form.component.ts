@@ -29,11 +29,12 @@ export class ProductUpdateFormComponent {
     this.route.paramMap.subscribe(param => {
       const id = param.get('id')
       if (id) {
-        this.productService.getProduct(id).subscribe(data => this.product = data)
+        this.productService.getProduct(id).subscribe(response => this.product = response.data)
       }
 
     })
-    this.categoryService.getCategories().subscribe(data => this.categories = data)
+    this.categoryService.getCategories().subscribe(response => this.categories = response.data)
+    console.log(this.categories)
   }
   handleSubmit() {
     console.log(this.product)
