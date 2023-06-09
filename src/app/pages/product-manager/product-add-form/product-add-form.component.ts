@@ -24,11 +24,11 @@ export class ProductAddFormComponent {
     private productService: ProductService,
     private categoryService: CategoryService
   ) {
-    this.categoryService.getCategories().subscribe(data => this.categories = data)
+    this.categoryService.getCategories().subscribe(response => this.categories = response.data)
   }
   handleSubmit() {
-    this.productService.createProduct(this.product).subscribe((data) => {
-      console.log(data)
+    this.productService.createProduct(this.product).subscribe((response) => {
+      this.categories = response.data
     })
   }
   updateSlug() {
