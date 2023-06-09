@@ -1,168 +1,82 @@
 <div class="w-full p-2">
-  <p class="text-md font-semibold my-2">
-    ÁO THUN POLO THỂ THAO VẢI POLY LẠNH LADOS - LD9137
-  </p>
-  <p class="text-sm my-2">
-    SKU: <span class="font-semibold">LD9137-XDE-M</span>
-  </p>
-  <p class="text-xl font-semibold my-2">139.000₫</p>
-  <p >
-    <b class=" font-bold text-md">Tình trạng:</b> <span class="text-emerald-600 text-md font-medium"> Còn hàng </span>
-  </p>
+	<p class="text-md font-semibold my-2">ÁO THUN POLO THỂ THAO VẢI POLY LẠNH LADOS - LD9137</p>
+	<p class="text-sm my-2">SKU: <span class="font-semibold">LD9137-XDE-M</span></p>
+	<p class="text-xl font-semibold my-2">139.000₫</p>
+	<p><b class="font-bold text-md">Tình trạng:</b> <span class="text-emerald-600 text-md font-medium"> Còn hàng </span></p>
 
-  <div class="w-full my-2">
-    <p class="text-md font-bold my-2">Kích thước:</p>
-    <div class="w-full">
-      <ul class="w-full flex">
-        <li class="w-24 h-10 relative mr-2 border border-black-500">
-          <label
-            for="btn1"
-            class="absolute inset-0 z-50 text-md leading-10 px-1 cursor-pointer text-center"
-            >M</label
-          >
-          <input
-            type="radio"
-            id="btn1"
-            class="absolute inset-0 z-10 visible opacity-0"
-          />
-        </li>
-        <li class="w-24 h-10 relative mr-2 border border-black-500">
-          <label
-            for="btn1"
-            class="absolute inset-0 z-50 text-md leading-10 px-1 cursor-pointer text-center"
-            >L</label
-          >
-          <input
-            type="radio"
-            id="btn1"
-            class="absolute inset-0 z-10 visible opacity-0"
-          />
-        </li>
-        <li class="w-24 h-10 relative mr-2 border border-black-500">
-          <label
-            for="btn1"
-            class="absolute inset-0 z-50 text-md leading-10 px-1 cursor-pointer text-center"
-            >XL</label
-          >
-          <input
-            type="radio"
-            id="btn1"
-            class="absolute inset-0 z-10 visible opacity-0"
-          />
-        </li>
-      </ul>
-    </div>
-  </div>
+	<div class="my-2">
+		<p class="text-md font-semibold my-2">Số lượng:</p>
+		<div class="flex w-32 h-12 border p-1 shadow-sm">
+			<button
+				class="w-10 h-10 grid place-items-center shadow-sm"
+				(click)="prevQuantity()"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					height="1em"
+					viewBox="0 0 448 512"
+				>
+					<path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z" />
+				</svg>
+			</button>
+			<input
+				type="number"
+				class="w-10 h-10"
+				min="1"
+				value="{{ quantity }}"
+			/>
+			<button
+				class="w-10 h-10 grid place-items-center shadow-sm"
+				(click)="increaseQuantity()"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					height="1em"
+					viewBox="0 0 448 512"
+				>
+					<path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
+				</svg>
+			</button>
+		</div>
+	</div>
 
-  <div class="w-full my-2">
-    <p class="text-md font-bold my-2">Màu sắc:</p>
-    <ul class="w-full flex">
-      <li class="w-24 h-10 relative mr-2 border border-black-500">
-        <label
-          for="btn1"
-          class="absolute inset-0 z-50 text-md leading-10 px-1 cursor-pointer"
-          >Xanh đen</label
-        >
-        <input
-          type="radio"
-          id="btn1"
-          class="absolute inset-0 z-10 visible opacity-0"
-        />
-      </li>
-      <li class="w-24 h-10 relative mr-2 border border-black-500">
-        <label
-          for="btn1"
-          class="absolute inset-0 z-50 text-md leading-10 px-1 cursor-pointer"
-          >Xanh đen</label
-        >
-        <input
-          type="radio"
-          id="btn1"
-          class="absolute inset-0 z-10 visible opacity-0"
-        />
-      </li>
-      <li class="w-24 h-10 relative mr-2 border border-black-500">
-        <label
-          for="btn1"
-          class="absolute inset-0 z-50 text-md leading-10 px-1 cursor-pointer"
-          >Xanh đen</label
-        >
-        <input
-          type="radio"
-          id="btn1"
-          class="absolute inset-0 z-10 visible opacity-0"
-        />
-      </li>
-    </ul>
-  </div>
-  <div class="my-2 ">
-    <p class="text-md font-semibold my-2">Số lượng:</p>
-    <div class="flex w-32 h-12 border p-1 shadow-sm">
-      <button class="w-10 h-10 grid place-items-center shadow-sm">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-        >
-          <path
-            d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"
-          />
-        </svg>
-      </button>
-      <input type="number" class="w-10 h-10" min="0" value="1"/>
-      <button class="w-10 h-10 grid place-items-center shadow-sm">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-        >
-          <path
-            d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"
-          />
-        </svg>
-      </button>
-    </div>
-  </div>
+	<button
+		class="w-2/3 border border-black p-2 flex flex-col justify-center items-center bg-slate-950 hover:bg-slate-900 my-2"
+		(click)="addToCart()"
+		[swal]="['Thêm vào giỏ hàng thành công', '  ', 'success']"
+	>
+		<span class="text-white font-bold text-xl"
+			>MUA NGAY VỚI GIÁ
+			<b>139.000đ</b>
+		</span>
+		<span class="text-white">Đặt mua giao hàng tận nơi</span>
+	</button>
 
-  <button
-    class="w-2/3 border border-black p-2 flex flex-col justify-center items-center bg-slate-950 hover:bg-slate-900 my-2"
-  >
-    <span class="text-white font-bold text-xl"
-      >MUA NGAY VỚI GIÁ
-      <b>139.000đ</b>
-    </span>
-    <span class="text-white">Đặt mua giao hàng tận nơi</span>
-  </button>
-
-  <p class="my-2 font-semibold text-sm">
-    Gọi đặt mua: <span class="text-blue-400">0945777711</span
-    ><span>(miễn phí 8:30-21:30)</span>
-  </p>
-  <div class="my-4">
-    <p class="flex items-center my-2">
-        <img
-          src="https://bizweb.dktcdn.net/100/426/984/themes/900482/assets/policy_images_2.svg?1680855248967"
-          alt=""
-          class="w-10 h-10"
-        />
-      <span class="ml-2">Miễn phí vận chuyển đơn hàng <b>từ 400.000đ</b> </span>
-    </p>
-    <p class="flex items-center my-2">
-      <img
-          src="https://bizweb.dktcdn.net/100/426/984/themes/900482/assets/policy_images_3.svg?1680855248967"
-          alt=""
-          class="w-10 h-10"
-        />
-      <span>BẢO HÀNH <b>7 NGÀY</b> DO LỖI NHÀ SẢN XUẤT</span>
-    </p>
-    <p class="flex items-center my-2">
-      <img
-          src="https://bizweb.dktcdn.net/100/426/984/themes/900482/assets/policy_images_4.svg?1680855248967"
-          alt=""
-          class="w-10 h-10"
-        />
-      <span>CAM KẾT <b> 100% CHÍNH HÃNG </b></span>
-    </p>
-
-  </div>
+	<p class="my-2 font-semibold text-sm">Gọi đặt mua: <span class="text-blue-400">0945777711</span><span>(miễn phí 8:30-21:30)</span></p>
+	<div class="my-4">
+		<p class="flex items-center my-2">
+			<img
+				src="https://bizweb.dktcdn.net/100/426/984/themes/900482/assets/policy_images_2.svg?1680855248967"
+				alt=""
+				class="w-10 h-10"
+			/>
+			<span class="ml-2">Miễn phí vận chuyển đơn hàng <b>từ 400.000đ</b> </span>
+		</p>
+		<p class="flex items-center my-2">
+			<img
+				src="https://bizweb.dktcdn.net/100/426/984/themes/900482/assets/policy_images_3.svg?1680855248967"
+				alt=""
+				class="w-10 h-10"
+			/>
+			<span>BẢO HÀNH <b>7 NGÀY</b> DO LỖI NHÀ SẢN XUẤT</span>
+		</p>
+		<p class="flex items-center my-2">
+			<img
+				src="https://bizweb.dktcdn.net/100/426/984/themes/900482/assets/policy_images_4.svg?1680855248967"
+				alt=""
+				class="w-10 h-10"
+			/>
+			<span>CAM KẾT <b> 100% CHÍNH HÃNG </b></span>
+		</p>
+	</div>
 </div>
