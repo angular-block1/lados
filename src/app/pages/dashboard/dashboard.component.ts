@@ -1,4 +1,5 @@
 import { Component,  AfterViewInit, ViewChild } from '@angular/core';
+import { OrderService } from 'app/services/order.service';
 import { Chart } from 'chart.js/auto';
 
 @Component({
@@ -13,13 +14,14 @@ export class DashboardComponent implements  AfterViewInit{
   @ViewChild('pieCanvas') pieCanvas!: { nativeElement: any };
 
   pieChart: any;
-
-  constructor() {}
+  data:number[]=[]
+  constructor(private orderBill:OrderService) {
+    this.orderBill.getBill().subscribe((item)=>this.data=item)
+  }
 
   ngAfterViewInit(): void {
     this.pieChartBrowser();
   }
-
   pieChartBrowser(): void {
     this.canvas = this.pieCanvas.nativeElement;
     this.ctx = this.canvas.getContext('2d');
@@ -43,7 +45,7 @@ export class DashboardComponent implements  AfterViewInit{
               '#777777',
               '#222222',
             ],
-            data: [12, 19, 3, 17, 28, 24,10,10,10,10,10,10],
+            data: this.data,
           },
         ],
       },
