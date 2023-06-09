@@ -12,4 +12,7 @@ export class OrderService {
   getAllOrders() {
 
   }
+  getBill(){
+    return this._api.getTypeRequest("/order/ds")
+  }
 }
