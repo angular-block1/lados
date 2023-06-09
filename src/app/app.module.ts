@@ -17,6 +17,9 @@ import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { LoginComponent } from "./pages/login/login.component";
 import { DetailComponent } from "./pages/product-detail/component/detail/detail.component";
 import { NavComponent } from "./pages/product-detail/component/nav/nav.component";
+
+import { CarouselModule } from "ngx-owl-carousel-o";
+
 import { SignUpPageComponent } from "./pages/sign-up-page/sign-up-page.component";
 import { DashboardComponent } from "./pages/dashboard/dashboard.component";
 import { ProductManagerComponent } from "./pages/product-manager/product-manager.component";
@@ -24,12 +27,8 @@ import { CategoryManagerComponent } from "./pages/category-manager/category-mana
 import { OrderManagerComponent } from "./pages/order-manager/order-manager.component";
 import { ProductAddFormComponent } from "./pages/product-manager/product-add-form/product-add-form.component";
 import { ProductUpdateFormComponent } from "./pages/product-manager/product-update-form/product-update-form.component";
-import { Chart } from "chart.js";
-import { CarouselModule } from "ngx-owl-carousel-o";
-import { OrderListsPageComponent } from "./pages/order-lists-page/order-lists-page.component";
-import { UserOrderDetailPageComponent } from "./pages/user-order-detail-page/user-order-detail-page.component";
 @NgModule({
-	declarations: [AppComponent, HeaderComponent, FooterComponent, LayoutAdminComponent, LayoutClientComponent, ProductDetailComponent, CartComponent, ListProductComponent, HomePageComponent, LoginComponent, DetailComponent, NavComponent, SignUpPageComponent, DashboardComponent, ProductManagerComponent, CategoryManagerComponent, OrderManagerComponent, ProductAddFormComponent, ProductUpdateFormComponent, OrderListsPageComponent, UserOrderDetailPageComponent],
+	declarations: [AppComponent, HeaderComponent, FooterComponent, LayoutAdminComponent, LayoutClientComponent, ProductDetailComponent, CartComponent, ListProductComponent, HomePageComponent, LoginComponent, DetailComponent, NavComponent, SignUpPageComponent, DashboardComponent, ProductManagerComponent, CategoryManagerComponent, OrderManagerComponent, ProductAddFormComponent, ProductUpdateFormComponent],
 	imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, CarouselModule, SweetAlert2Module.forRoot()],
 	providers: [],
 	bootstrap: [AppComponent],
