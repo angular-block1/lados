@@ -6,15 +6,14 @@ import { Observable } from "rxjs";
 	providedIn: "root",
 })
 export class ProductService {
-	constructor(private _api: ApiService) { }
+	constructor(private _api: ApiService) {}
 
 	getProducts({ _limit = 10, _page = 1, _order = "asc", _sort = "createdAt" }): Observable<any> {
-		return this._api
-			.getTypeRequest(`/products?_limit=${_limit}&_order=${_order}&_sort=${_sort}&_page=${_page}`);
+		return this._api.getTypeRequest(`/products?_limit=${_limit}&_order=${_order}&_sort=${_sort}&_page=${_page}`);
 	}
 
-	getProduct(id: string): Observable<any> {
-		return this._api.getTypeRequest("/products/" + id);
+	getProduct(slug: string): Observable<any> {
+		return this._api.getTypeRequest("/products/" + slug);
 	}
 
 	createProduct(payload: any): Observable<any> {
