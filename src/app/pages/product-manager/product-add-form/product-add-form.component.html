@@ -27,7 +27,7 @@
             <label for="categoryId" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Danh
                 mục</label>
             <select name="categoryId" id="categoryId" class="input" [(ngModel)]="product.category">
-                <option class="py-2 uppercase" *ngFor="let category of categories" value="{{category.id}}">
+                <option class="py-2 uppercase" *ngFor="let category of categories" value="{{category._id}}">
                     {{category.name}}
                 </option>
             </select>
@@ -38,7 +38,9 @@
             <input type="file" name="imageProducts" multiple class="input" required [(ngModel)]="product.images">
         </div>
     </div>
-
+    <label for="imageProducts" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Thêm mô tả</label>
+    <textarea name="description" id="" class="w-full h-32 resize-none input"
+        [(ngModel)]="product.description"></textarea>
     <div class="justify-end flex">
         <button type="submit" class="btn--green uppercase">thêm mới</button>
     </div>
