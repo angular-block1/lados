@@ -18,6 +18,7 @@ import { ProductUpdateFormComponent } from "./pages/product-manager/product-upda
 import { OrderdetailComponent } from "./pages/orderdetail/orderdetail.component";
 import { OrderListsPageComponent } from "./pages/order-lists-page/order-lists-page.component";
 import { UserOrderDetailPageComponent } from "./pages/user-order-detail-page/user-order-detail-page.component";
+import { authGuard } from "./auth.guard";
 
 const routes: Routes = [
 	{
@@ -41,6 +42,7 @@ const routes: Routes = [
 	{
 		path: "admin",
 		component: LayoutAdminComponent,
+		canActivate: [authGuard],
 		children: [
 			{
 				path: "",
@@ -78,4 +80,4 @@ const routes: Routes = [
 	imports: [RouterModule.forRoot(routes)],
 	exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
