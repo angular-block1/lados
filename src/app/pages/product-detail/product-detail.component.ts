@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct } from 'app/interfaces/Product';
 import { ProductService } from 'app/services/product.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
@@ -13,7 +13,7 @@ export class ProductDetailComponent {
   product: IProduct = {
 
   } as IProduct
-
+  products:any[]=[]
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: false,
@@ -39,13 +39,18 @@ export class ProductDetailComponent {
     nav: true
   }
 
-  constructor(private productService: ProductService, private router: ActivatedRoute) {
+  constructor(private productService: ProductService, private router: ActivatedRoute, private route:Router) {
     this.router.paramMap.subscribe(params => {
       const slug = String(params.get('slug'));
       this.productService.getProduct(slug).subscribe(data => {
-        this.product = data;
-      })
+        this.product=data.data
+        
+        this.productService.getProducts({_category:data.data.category._id}).subscribe(({data})=>this.products=data)
+      }) 
     })
   }
-
+  nextpage(slug:string){
+		this.route.navigate([`product/${slug}`])
+	}
+  
 }

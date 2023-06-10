@@ -10,10 +10,9 @@
 			<div>
 				<h2 class="uppercase text-xl font-semibold">Danh mục</h2>
 				<p class="py-2 pt-2 font-semibold">Hàng mới</p>
-				<ul>
-					<li class="py-2"><a href="">Áo</a></li>
-					<li class="py-2"><a href="">Quần</a></li>
-					<li class="py-2"><a href="">Đồ thể thao</a></li>
+				<p class="py-2 pt-2 font-semibold" (click)="all()">Tất cả sản phẩm</p>
+				<ul *ngFor="let cate of cates">
+					<li (click)="findCate(cate._id)" class="py-2">{{cate.name}}</li>
 				</ul>
 			</div>
 			<div class="mt-5">
@@ -27,125 +26,25 @@
 			</div>
 		</div>
 
-		<div class="grid grid-cols-3 gap-3 ml-5">
-			<div class="text-center items-center overflow-hidden card w-[290px] h-[370px]">
+		<div class="grid grid-cols-3 gap-3 ml-5" >
+			<div class="text-center items-center overflow-hidden card w-[290px] h-[380px] mb-2" *ngFor="let product of products">
 				<div class="imgs_product relative">
 					<img
 						class="absolute inset-0 opacity-100 img_product duration-300"
-						src="https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/4514346b352df067f9cd5288207024e1-1684827921410.jpg?v=1684898372243"
+						src={{product?.images[0]}}
 						alt=""
 					/>
 					<img
-						src="https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/0123a7b8a30234cbff048a731c013444-1684898297401.jpg?v=1684898372243"
+						src={{product?.images[1]}}
 						alt=""
 					/>
 				</div>
 				<div class="text">
-					<p class="text-sm font-semibold">Áo thun</p>
-					<p class="text-sm py-2">100.000VND</p>
+					<p class="text-sm font-semibold py-2">{{product.name}}</p>
+					<p class="text-sm py-2">{{product.price}}</p>
 				</div>
 				<div class="text-center btn relative">
-					<button class="bg-white text-black border w-[290px] h-[50px]">Tùy chọn</button>
-				</div>
-			</div>
-			<div class="text-center items-center overflow-hidden card w-[290px] h-[370px]">
-				<div class="imgs_product relative">
-					<img
-						class="absolute inset-0 opacity-100 img_product duration-300"
-						src="https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/4514346b352df067f9cd5288207024e1-1684827921410.jpg?v=1684898372243"
-						alt=""
-					/>
-					<img
-						src="https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/0123a7b8a30234cbff048a731c013444-1684898297401.jpg?v=1684898372243"
-						alt=""
-					/>
-				</div>
-				<div class="text">
-					<p class="text-sm font-semibold">Áo thun</p>
-					<p class="text-sm py-2">100.000VND</p>
-				</div>
-				<div class="text-center btn relative">
-					<button class="bg-white text-black border w-[290px] h-[50px]">Tùy chọn</button>
-				</div>
-			</div>
-			<div class="text-center items-center overflow-hidden card w-[290px] h-[370px]">
-				<div class="imgs_product relative">
-					<img
-						class="absolute inset-0 opacity-100 img_product duration-300"
-						src="https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/4514346b352df067f9cd5288207024e1-1684827921410.jpg?v=1684898372243"
-						alt=""
-					/>
-					<img
-						src="https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/0123a7b8a30234cbff048a731c013444-1684898297401.jpg?v=1684898372243"
-						alt=""
-					/>
-				</div>
-				<div class="text">
-					<p class="text-sm font-semibold">Áo thun</p>
-					<p class="text-sm py-2">100.000VND</p>
-				</div>
-				<div class="text-center btn relative">
-					<button class="bg-white text-black border w-[290px] h-[50px]">Tùy chọn</button>
-				</div>
-			</div>
-			<div class="text-center items-center overflow-hidden card w-[290px] h-[370px]">
-				<div class="imgs_product relative">
-					<img
-						class="absolute inset-0 opacity-100 img_product duration-300"
-						src="https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/4514346b352df067f9cd5288207024e1-1684827921410.jpg?v=1684898372243"
-						alt=""
-					/>
-					<img
-						src="https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/0123a7b8a30234cbff048a731c013444-1684898297401.jpg?v=1684898372243"
-						alt=""
-					/>
-				</div>
-				<div class="text">
-					<p class="text-sm font-semibold">Áo thun</p>
-					<p class="text-sm py-2">100.000VND</p>
-				</div>
-				<div class="text-center btn relative">
-					<button class="bg-white text-black border w-[290px] h-[50px]">Tùy chọn</button>
-				</div>
-			</div>
-			<div class="text-center items-center overflow-hidden card w-[290px] h-[370px]">
-				<div class="imgs_product relative">
-					<img
-						class="absolute inset-0 opacity-100 img_product duration-300"
-						src="https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/4514346b352df067f9cd5288207024e1-1684827921410.jpg?v=1684898372243"
-						alt=""
-					/>
-					<img
-						src="https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/0123a7b8a30234cbff048a731c013444-1684898297401.jpg?v=1684898372243"
-						alt=""
-					/>
-				</div>
-				<div class="text">
-					<p class="text-sm font-semibold">Áo thun</p>
-					<p class="text-sm py-2">100.000VND</p>
-				</div>
-				<div class="text-center btn relative">
-					<button class="bg-white text-black border w-[290px] h-[50px]">Tùy chọn</button>
-				</div>
-			</div>
-			<div class="text-center items-center overflow-hidden card w-[290px] h-[370px]">
-				<div class="imgs_product relative">
-					<img
-						class="absolute inset-0 opacity-100 img_product duration-300"
-						src="https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/4514346b352df067f9cd5288207024e1-1684827921410.jpg?v=1684898372243"
-						alt=""
-					/>
-					<img
-						src="https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/0123a7b8a30234cbff048a731c013444-1684898297401.jpg?v=1684898372243"
-						alt=""
-					/>
-				</div>
-				<div class="text">
-					<p class="text-sm font-semibold">Áo thun</p>
-					<p class="text-sm py-2">100.000VND</p>
-				</div>
-				<div class="text-center btn relative">
-					<button class="bg-white text-black border w-[290px] h-[50px]">Tùy chọn</button>
+					<button class="bg-white text-black border w-[290px] h-[50px] up" (click)="nextpage(product.slug)">Tùy chọn</button>
 				</div>
 			</div>
 		</div>
