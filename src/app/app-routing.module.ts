@@ -56,7 +56,7 @@ const routes: Routes = [
 			},
 			{
 				path: "products/:id/update",
-				component: ProductUpdateFormComponent
+				component: ProductUpdateFormComponent,
 			},
 			{
 				path: "categories",
@@ -76,6 +76,6 @@ const routes: Routes = [
 
 @NgModule({
 	imports: [RouterModule.forRoot(routes)],
-	exports: [RouterModule]
+	exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -1,5 +1,9 @@
 <div class="container mx-auto w-[1200px] mt-[30px] max-w-full">
-	<form class="w-full grid grid-cols-1 sm:grid-cols-1 xl:grid-cols-[800px_repeat(1,_1fr)]">
+	<form
+		[formGroup]="order"
+		(ngSubmit)="onSubmit()"
+		class="w-full grid grid-cols-1 sm:grid-cols-1 xl:grid-cols-[800px_repeat(1,_1fr)]"
+	>
 		<div class="w-full p-7">
 			<h2 class="font-semibold text-3xl text-[#2a9dcc]">Lados</h2>
 			<div class="grid grid-cols-1 xl:grid-cols-2 py-4 gap-10">
@@ -12,8 +16,19 @@
 								name="email"
 								placeholder="Email*"
 								class="input"
+								id="email"
+								formControlName="email"
 							/>
-							<span class="text-sm block text-red-400 font-medium mt-1">Vui lòng nhập thông tin</span>
+							<span
+								*ngIf="check && order?.controls?.['email']?.errors?.['required']"
+								class="text-sm block text-red-400 font-medium mt-1"
+								>Vui lòng nhập thông tin</span
+							>
+							<span
+								*ngIf="check && order?.controls?.['email']?.errors?.['email']"
+								class="text-sm block text-red-400 font-medium mt-1"
+								>Email không đúng định dạng</span
+							>
 						</label>
 					</div>
 					<div class="row w-full mt-4">
@@ -23,8 +38,13 @@
 								name="fullname"
 								placeholder="Tên người nhận hàng"
 								class="input"
+								formControlName="fullname"
 							/>
-							<span class="text-sm block text-red-400 font-medium mt-1">Vui lòng nhập thông tin </span>
+							<span
+								*ngIf="check && order?.controls?.['fullname']?.errors?.['required']"
+								class="text-sm block text-red-400 font-medium mt-1"
+								>Vui lòng nhập thông tin</span
+							>
 						</label>
 					</div>
 					<div class="row w-full mt-4">
@@ -34,8 +54,18 @@
 								name="phone"
 								placeholder="SĐT"
 								class="input"
+								formControlName="phone"
 							/>
-							<span class="text-sm block text-red-400 font-medium mt-1">Vui lòng nhập thông tin </span>
+							<span
+								*ngIf="check && order?.controls?.['phone']?.errors?.['required']"
+								class="text-sm block text-red-400 font-medium mt-1"
+								>Vui lòng nhập thông tin</span
+							>
+							<span
+								*ngIf="check && order?.controls?.['phone']?.errors?.['pattern']"
+								class="text-sm block text-red-400 font-medium mt-1"
+								>SĐT không đúng định dạng</span
+							>
 						</label>
 					</div>
 					<div class="row w-full mt-4">
@@ -45,8 +75,13 @@
 								name="address"
 								placeholder="Địa chỉ cụ thể"
 								class="input"
+								formControlName="address"
 							/>
-							<span class="text-sm block text-red-400 font-medium mt-1">Vui lòng nhập thông tin </span>
+							<span
+								*ngIf="check && order?.controls?.['address']?.errors?.['required']"
+								class="text-sm block text-red-400 font-medium mt-1"
+								>Vui lòng nhập thông tin</span
+							>
 						</label>
 					</div>
 					<div class="row w-full mt-4">
@@ -54,45 +89,86 @@
 							<select
 								id="small"
 								class="block px-4 w-full h-[48px] text-sm text-gray-900 border border-gray-200 rounded"
+								(change)="handleDistricts($event.target)"
+								formControlName="province"
 							>
-								<option selected>Tỉnh thành</option>
-								<option value="US">Hà Nội</option>
-								<option value="CA">Canada</option>
-								<option value="FR">France</option>
-								<option value="DE">Germany</option>
+								<option
+									value=""
+									selected
+									disabled
+								>
+									-- Tỉnh thành --
+								</option>
+								<option
+									*ngFor="let province of provinces"
+									value="{{ province.name }}"
+								>
+									{{ province.name }}
+								</option>
 							</select>
 						</label>
-						<span class="text-sm block text-red-400 font-medium mt-1">Vui lòng nhập thông tin </span>
+						<span
+							*ngIf="check && order?.controls?.['province']?.errors?.['required']"
+							class="text-sm block text-red-400 font-medium mt-1"
+							>Vui lòng chọn thành phố</span
+						>
 					</div>
 					<div class="row w-full mt-4">
 						<label for="city">
 							<select
 								id="small"
 								class="block px-4 w-full h-[48px] text-sm text-gray-900 border border-gray-200 rounded"
+								(change)="handleWards($event.target)"
+								formControlName="district"
 							>
-								<option selected>Phường xã</option>
-								<option value="US">Hà Nội</option>
-								<option value="CA">Canada</option>
-								<option value="FR">France</option>
-								<option value="DE">Germany</option>
+								<option
+									value=""
+									selected
+									disabled
+								>
+									-- Quận/Huyện --
+								</option>
+								<option
+									*ngFor="let district of districts"
+									value="{{ district.name }}"
+								>
+									{{ district.name }}
+								</option>
 							</select>
 						</label>
-						<span class="text-sm block text-red-400 font-medium mt-1">Vui lòng nhập thông tin </span>
+						<span
+							*ngIf="check && order?.controls?.['district']?.errors?.['required']"
+							class="text-sm block text-red-400 font-medium mt-1"
+							>Vui lòng chọn quận/huyện</span
+						>
 					</div>
 					<div class="row w-full mt-4">
 						<label for="city">
 							<select
 								id="small"
 								class="block px-4 w-full h-[48px] text-sm text-gray-900 border border-gray-200 rounded"
+								formControlName="ward"
 							>
-								<option selected>Quận huyện</option>
-								<option value="US">Hà Nội</option>
-								<option value="CA">Canada</option>
-								<option value="FR">France</option>
-								<option value="DE">Germany</option>
+								<option
+									value=""
+									selected
+									disabled
+								>
+									-- Phường/Xã --
+								</option>
+								<option
+									*ngFor="let ward of wards"
+									value="{{ ward.name }}"
+								>
+									{{ ward.name }}
+								</option>
 							</select>
 						</label>
-						<span class="text-sm block text-red-400 font-medium mt-1">Vui lòng nhập thông tin </span>
+						<span
+							*ngIf="check && order?.controls?.['ward']?.errors?.['required']"
+							class="text-sm block text-red-400 font-medium mt-1"
+							>Vui lòng chọn phường/xã</span
+						>
 					</div>
 					<div class="row w-full mt-4">
 						<label for="note">
@@ -100,8 +176,14 @@
 								rows="4"
 								class="block p-4 w-full h-[80px] text-sm rounded border outline-none"
 								placeholder="Ghi chú"
+								formControlName="note"
 							></textarea>
 						</label>
+						<span
+							*ngIf="check && order?.controls?.['note']?.errors?.['required']"
+							class="text-sm block text-red-400 font-medium mt-1"
+							>Vui lòng nhập thông tin</span
+						>
 					</div>
 				</div>
 				<div>
@@ -113,8 +195,9 @@
 						>
 							<input
 								type="radio"
-								value="1"
-								name="payment[]"
+								value="COD"
+								name="payment"
+								formControlName="payment"
 								class="w-4 h-4 text-blue-600 bg-gray-100"
 							/>
 							<span class="text-sm font-normal ml-3">Thanh toán khi giao hàng (COD)</span>
@@ -127,8 +210,9 @@
 						>
 							<input
 								type="radio"
-								value="1"
-								name="payment[]"
+								value="MOMO"
+								name="payment"
+								formControlName="payment"
 								class="w-4 h-4 text-blue-600 bg-gray-100"
 							/>
 							<span class="text-sm font-normal ml-3">Thanh toán momo</span>
@@ -141,46 +225,45 @@
 						>
 							<input
 								type="radio"
-								value="1"
-								name="payment[]"
+								value="VNPAY"
+								name="payment"
+								formControlName="payment"
 								class="w-4 h-4 text-blue-600 bg-gray-100"
 							/>
-							<span class="text-sm font-normal ml-3">Thanh toán payment</span>
+							<span class="text-sm font-normal ml-3">Thanh toán vnpay</span>
 						</label>
 					</div>
+					<span
+						*ngIf="check && order?.controls?.['payment']?.errors?.['required']"
+						class="text-sm block text-red-400 font-medium mt-1"
+						>Vui lòng chọn phương thức thanh toán</span
+					>
 				</div>
 			</div>
 		</div>
 		<div class="p-7 border-l border-gray-300">
-			<h1 class="font-semibold text-2xl">Đơn hàng (1)</h1>
+			<h1 class="font-semibold text-2xl">Đơn hàng ({{ total }})</h1>
 			<div class="grid grid-cols-1 pt-4 mt-4 border-t border-gray-300">
-				<div class="row py-4 flex items-center gap-2 border-b border-gray-300">
-					<div class="w-[50px] h-[50px] relative after:content-['1'] after:absolute after:-top-3 after:z-10 after:-right-2 after:w-4 after:h-4 after:bg-[#2a9dcc] after:text-xs after:font-normal after:rounded-full text-white after:flex after:items-center after:justify-center">
+				<div
+					*ngFor="let product of cart?.products"
+					class="row py-4 flex items-center gap-2 border-b border-gray-300"
+				>
+					<div class="w-[50px] h-[50px] relative">
 						<img
-							src="https://taimienphi.vn/tmp/cf/aut/anh-gai-xinh-1.jpg"
+							src="{{ product.image }}"
 							class="w-full h-full object-cover rounded border border-gray-300"
 							alt=""
 						/>
+						<span class="absolute -top-3 z-10 -right-2 w-4 h-4 bg-[#2a9dcc] text-xs font-normal rounded-full text-white flex items-center justify-center">{{ product.quantity }}</span>
 					</div>
-					<p class="flex-1 text-sm font-normal">Sản phẩm chỉ mang tính chất họa vui lòng đừng</p>
-					<p class="text-sm font-normal text-gray-500">120.200đ</p>
-				</div>
-				<div class="row py-4 flex items-center gap-2 border-b border-gray-300">
-					<div class="w-[50px] h-[50px] relative after:content-['1'] after:absolute after:-top-3 after:z-10 after:-right-2 after:w-4 after:h-4 after:bg-[#2a9dcc] after:text-xs after:font-normal after:rounded-full text-white after:flex after:items-center after:justify-center">
-						<img
-							src="https://taimienphi.vn/tmp/cf/aut/anh-gai-xinh-1.jpg"
-							class="w-full h-full object-cover rounded border border-gray-300"
-							alt=""
-						/>
-					</div>
-					<p class="flex-1 text-sm font-normal">Sản phẩm chỉ mang tính chất họa vui lòng đừng</p>
-					<p class="text-sm font-normal text-gray-500">120.200đ</p>
+					<p class="flex-1 text-sm font-normal">{{ product.name }}</p>
+					<p class="text-sm font-normal text-gray-500">{{ formatNumber(product.price) }}đ</p>
 				</div>
 			</div>
 			<div class="grid grid-cols-1 pt-4 mt-4">
 				<div class="flex items-center justify-between">
 					<p class="text-sm font-normal">Tạm tính</p>
-					<p class="text-sm font-normal">120.304đ</p>
+					<p class="text-sm font-normal">{{ formatNumber(cart.bill) }}đ</p>
 				</div>
 				<div class="flex items-center justify-between mt-3">
 					<p class="text-sm font-normal">Phí vận chuyển</p>
@@ -188,7 +271,7 @@
 				</div>
 				<div class="flex items-center justify-between mt-4 border-t border-gray-300">
 					<p class="text-base font-normal mt-6">Tổng cộng</p>
-					<p class="text-xl font-semibold text-[#2a9dcc] mt-6">120.304đ</p>
+					<p class="text-xl font-semibold text-[#2a9dcc] mt-6">{{ formatNumber(cart.bill) }}đ</p>
 				</div>
 				<button
 					class="mt-4 btn--large bg-[#2a9dcc] text-white font-medium"
