@@ -41,7 +41,7 @@
 				</div>
 				<div class="text">
 					<p class="text-sm font-semibold py-2">{{product.name}}</p>
-					<p class="text-sm py-2">{{product.price}}</p>
+					<p class="text-sm py-2">{{product.price?.toLocaleString()}}VNĐ</p>
 				</div>
 				<div class="text-center btn relative">
 					<button class="bg-white text-black border w-[290px] h-[50px] up" (click)="nextpage(product.slug)">Tùy chọn</button>
