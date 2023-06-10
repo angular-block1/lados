@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { SweetAlert2Module } from "@sweetalert2/ngx-sweetalert2";
 import { ReactiveFormsModule } from "@angular/forms";
@@ -29,10 +29,11 @@ import { CategoryManagerComponent } from "./pages/category-manager/category-mana
 import { OrderManagerComponent } from "./pages/order-manager/order-manager.component";
 import { ProductAddFormComponent } from "./pages/product-manager/product-add-form/product-add-form.component";
 import { ProductUpdateFormComponent } from "./pages/product-manager/product-update-form/product-update-form.component";
+import { AuthInterceptor } from "./auth.interceptor";
 @NgModule({
 	declarations: [AppComponent, HeaderComponent, FooterComponent, LayoutAdminComponent, LayoutClientComponent, ProductDetailComponent, CartComponent, ListProductComponent, HomePageComponent, LoginComponent, DetailComponent, NavComponent, SignUpPageComponent, DashboardComponent, ProductManagerComponent, CategoryManagerComponent, CheckoutPageComponent, OrderManagerComponent, ProductAddFormComponent, ProductUpdateFormComponent],
 	imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, CarouselModule, ReactiveFormsModule, SweetAlert2Module.forRoot()],
-	providers: [],
+	providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
 	bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
