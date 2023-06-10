@@ -6,16 +6,16 @@ import { ProductService } from 'app/services/product.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
-	selector: "app-product-detail",
-	templateUrl: "./product-detail.component.html",
-	styleUrls: ["./product-detail.component.scss"],
+  selector: "app-product-detail",
+  templateUrl: "./product-detail.component.html",
+  styleUrls: ["./product-detail.component.scss"],
 })
 export class ProductDetailComponent {
 
   product: IProduct = {
 
   } as IProduct
-  products:any[]=[]
+  products: any[] = []
 
 
 
@@ -45,17 +45,18 @@ export class ProductDetailComponent {
   }
 
 
-  constructor(private productService: ProductService, private router: ActivatedRoute, private route:Router) {
+  constructor(private productService: ProductService, private router: ActivatedRoute, private route: Router) {
     this.router.paramMap.subscribe(params => {
       const slug = String(params.get('slug'));
       
       this.productService.getProduct(slug).subscribe(data => {
-        this.product=data.data
-        
-        this.productService.getProducts({_category:data.data.category._id}).subscribe(({data})=>this.products=data)
-      }) 
+        this.product = data.data
+
+        this.productService.getProducts({ _category: data.data.category._id }).subscribe(({ data }) => this.products = data)
+      })
     })
   }
+
   formatNumber(str: any) {
 		str = `${str}`;
 		return str
