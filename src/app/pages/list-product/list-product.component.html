@@ -10,9 +10,9 @@
 			<div>
 				<h2 class="uppercase text-xl font-semibold">Danh mục</h2>
 				<p class="py-2 pt-2 font-semibold">Hàng mới</p>
-				<p class="py-2 pt-2 font-semibold" (click)="all()">Tất cả sản phẩm</p>
+				<button class="py-2 pt-2 font-semibold" (click)="all()">Tất cả sản phẩm</button>
 				<ul *ngFor="let cate of cates">
-					<li (click)="findCate(cate._id)" class="py-2">{{cate.name}}</li>
+					<li><button (click)="findCate(cate._id)" class="py-2">{{cate.name}}</button></li>
 				</ul>
 			</div>
 			<div class="mt-5">
@@ -27,7 +27,7 @@
 		</div>
 
 		<div class="grid grid-cols-3 gap-3 ml-5" >
-			<div class="text-center items-center overflow-hidden card w-[290px] h-[380px] mb-2" *ngFor="let product of products">
+			<div class="text-center items-center overflow-hidden card w-[290px] h-[390px] mb-2" *ngFor="let product of products">
 				<div class="imgs_product relative">
 					<img
 						class="absolute inset-0 opacity-100 img_product duration-300"
