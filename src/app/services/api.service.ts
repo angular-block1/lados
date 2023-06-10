@@ -6,9 +6,9 @@ import { Observable } from "rxjs";
 	providedIn: "root",
 })
 export class ApiService {
-	port = 8000;
+	port = 4000;
 	private baseUrl = `http://localhost:${this.port}/api`;
-	constructor(private _http: HttpClient) { }
+	constructor(private _http: HttpClient) {}
 
 	getTypeRequest(url: string): Observable<any> {
 		return this._http.get(`${this.baseUrl}${url}`);
@@ -24,5 +24,9 @@ export class ApiService {
 
 	putTypeRequest(url: string, payload: any): Observable<any> {
 		return this._http.put(`${this.baseUrl}${url}`, payload);
+	}
+
+	patchTypeRequest(url: string, payload: any): Observable<any> {
+		return this._http.patch(`${this.baseUrl}${url}`, payload);
 	}
 }
