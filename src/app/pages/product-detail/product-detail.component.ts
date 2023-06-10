@@ -5,13 +5,6 @@ import { IProduct } from 'app/interfaces/Product';
 import { ProductService } from 'app/services/product.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
-import { Component } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { IProduct } from "app/interfaces/Product";
-import { ProductService } from "app/services/product.service";
-import { OwlOptions } from "ngx-owl-carousel-o";
-
-
 @Component({
 	selector: "app-product-detail",
 	templateUrl: "./product-detail.component.html",
@@ -24,7 +17,7 @@ export class ProductDetailComponent {
   } as IProduct
   products:any[]=[]
 
-	product: IProduct = {} as IProduct;
+
 
   customOptions: OwlOptions = {
     loop: true,
@@ -66,14 +59,5 @@ export class ProductDetailComponent {
 		this.route.navigate([`product/${slug}`])
 	}
   
-
-	constructor(private productService: ProductService, private router: ActivatedRoute) {
-		this.router.paramMap.subscribe((params) => {
-			const slug = String(params.get("slug"));
-			this.productService.getProduct(slug).subscribe((data) => {
-				this.product = data.data[0];
-			});
-		});
-	}
 
 }

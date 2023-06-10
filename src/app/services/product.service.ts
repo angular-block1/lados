@@ -12,12 +12,7 @@ export class ProductService {
 	getProducts({_category="", _limit = 10, _page = 1, _order = "asc", _sort = "createdAt" }): Observable<any> {
 		return this._api
 			.getTypeRequest(`/products?_category=${_category}&_limit=${_limit}&_order=${_order}&_sort=${_sort}&_page=${_page}`);
-
-	getProducts({ _limit = 10, _page = 1, _order = "asc", _sort = "createdAt" }): Observable<any> {
-		return this._api.getTypeRequest(`/products?_limit=${_limit}&_order=${_order}&_sort=${_sort}&_page=${_page}`);
-
 	}
-
 	getProduct(slug: string): Observable<any> {
 		return this._api.getTypeRequest("/products/" + slug);
 	}
@@ -34,3 +29,4 @@ export class ProductService {
 		return this._api.deleteTypeRequest("/products/" + id);
 	}
 }
+
