@@ -15,7 +15,15 @@ export class DetailComponent {
 	quantity = 1;
 
 	constructor(private _cart: CartService) {}
-
+	formatNumber(str: any) {
+		str = `${str}`;
+		return str
+			.split("")
+			.reverse()
+			.reduce((prev: any, next: any, index: any) => {
+				return (index % 3 ? next : next + ".") + prev;
+			});
+	}
 	increaseQuantity() {
 		return (this.quantity += 1);
 	}
