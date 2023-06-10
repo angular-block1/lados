@@ -3,6 +3,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { SweetAlert2Module } from "@sweetalert2/ngx-sweetalert2";
+import { ReactiveFormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./component/header/header.component";
@@ -17,6 +18,7 @@ import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { LoginComponent } from "./pages/login/login.component";
 import { DetailComponent } from "./pages/product-detail/component/detail/detail.component";
 import { NavComponent } from "./pages/product-detail/component/nav/nav.component";
+import { CheckoutPageComponent } from "./pages/checkout-page/checkout-page.component";
 
 import { CarouselModule } from "ngx-owl-carousel-o";
 
@@ -28,8 +30,8 @@ import { OrderManagerComponent } from "./pages/order-manager/order-manager.compo
 import { ProductAddFormComponent } from "./pages/product-manager/product-add-form/product-add-form.component";
 import { ProductUpdateFormComponent } from "./pages/product-manager/product-update-form/product-update-form.component";
 @NgModule({
-	declarations: [AppComponent, HeaderComponent, FooterComponent, LayoutAdminComponent, LayoutClientComponent, ProductDetailComponent, CartComponent, ListProductComponent, HomePageComponent, LoginComponent, DetailComponent, NavComponent, SignUpPageComponent, DashboardComponent, ProductManagerComponent, CategoryManagerComponent, OrderManagerComponent, ProductAddFormComponent, ProductUpdateFormComponent],
-	imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, CarouselModule, SweetAlert2Module.forRoot()],
+	declarations: [AppComponent, HeaderComponent, FooterComponent, LayoutAdminComponent, LayoutClientComponent, ProductDetailComponent, CartComponent, ListProductComponent, HomePageComponent, LoginComponent, DetailComponent, NavComponent, SignUpPageComponent, DashboardComponent, ProductManagerComponent, CategoryManagerComponent, CheckoutPageComponent, OrderManagerComponent, ProductAddFormComponent, ProductUpdateFormComponent],
+	imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, CarouselModule, ReactiveFormsModule, SweetAlert2Module.forRoot()],
 	providers: [],
 	bootstrap: [AppComponent],
 })
