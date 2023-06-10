@@ -10,7 +10,7 @@ export class TokenStorageService {
 	USER = "user";
 
 	getToken() {
-		return JSON.parse(localStorage.getItem(this.TOKEN) as any);
+		return localStorage.getItem(this.TOKEN);
 	}
 
 	setToken(token: string): void {
