@@ -65,7 +65,7 @@ const routes: Routes = [
 				component: ProductAddFormComponent,
 			},
 			{
-				path: "products/:id/update",
+				path: "products/:slug/update",
 				component: ProductUpdateFormComponent,
 			},
 			{

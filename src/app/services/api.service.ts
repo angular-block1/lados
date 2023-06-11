@@ -8,14 +8,14 @@ import { Observable } from "rxjs";
 export class ApiService {
 	port = 4000;
 	private baseUrl = `http://localhost:${this.port}/api`;
-	constructor(private _http: HttpClient) {}
+	constructor(private _http: HttpClient) { }
 
 	getTypeRequest(url: string): Observable<any> {
 		return this._http.get(`${this.baseUrl}${url}`);
 	}
 
-	postTypeRequest(url: string, payload: any): Observable<any> {
-		return this._http.post(`${this.baseUrl}${url}`, payload);
+	postTypeRequest(url: string, payload: any, options: any = {}): Observable<any> {
+		return this._http.post(`${this.baseUrl}${url}`, payload, options);
 	}
 
 	deleteTypeRequest(url: string): Observable<any> {
