@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { CartService } from "app/services/cart.service";
+import { CategoryService } from "app/services/category.service";
 import { TokenStorageService } from "app/services/token-storage.service";
 import { BehaviorSubject } from "rxjs";
 
@@ -10,13 +11,18 @@ import { BehaviorSubject } from "rxjs";
 })
 export class HeaderComponent {
 	cart = {};
+	cates:any[]=[]
 	total = 0;
 	user = {
 		name: "",
 	};
 
 	cartObs = new BehaviorSubject(this.cart);
-	constructor(private _cart: CartService, private _token: TokenStorageService) {
+	constructor(private _cart: CartService, private _token: TokenStorageService ,private cateService:CategoryService) {
+		this.cateService.getCategories().subscribe(({data})=>{
+			const arr =data.filter((item:any)=>item.name!="Không xác định")
+			this.cates=arr
+		})
 		this.cart = this._cart.getCart();
 		this.cartObs.next({ ...this.cart });
 		this.cartObs.subscribe((cart: any) => {

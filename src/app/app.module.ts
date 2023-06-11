@@ -34,6 +34,7 @@ import { ProductUpdateFormComponent } from "./pages/product-manager/product-upda
 import { OrderListsPageComponent } from "./pages/order-lists-page/order-lists-page.component";
 import { UserOrderDetailPageComponent } from "./pages/user-order-detail-page/user-order-detail-page.component";
 import { ThanksPageComponent } from "./pages/thanks-page/thanks-page.component";
+import { OrderdetailComponent } from "./pages/orderdetail/orderdetail.component";
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -59,6 +60,7 @@ import { ThanksPageComponent } from "./pages/thanks-page/thanks-page.component";
 		OrderListsPageComponent,
 		UserOrderDetailPageComponent,
 		ThanksPageComponent,
+		OrderdetailComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -72,4 +74,4 @@ import { ThanksPageComponent } from "./pages/thanks-page/thanks-page.component";
 	providers: [{ provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true }],
 	bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
