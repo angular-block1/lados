@@ -30,6 +30,7 @@ import { CategoryManagerComponent } from "./pages/category-manager/category-mana
 import { OrderManagerComponent } from "./pages/order-manager/order-manager.component";
 import { ProductAddFormComponent } from "./pages/product-manager/product-add-form/product-add-form.component";
 import { ProductUpdateFormComponent } from "./pages/product-manager/product-update-form/product-update-form.component";
+
 import { OrderListsPageComponent } from "./pages/order-lists-page/order-lists-page.component";
 import { UserOrderDetailPageComponent } from "./pages/user-order-detail-page/user-order-detail-page.component";
 import { ThanksPageComponent } from "./pages/thanks-page/thanks-page.component";
@@ -71,4 +72,4 @@ import { ThanksPageComponent } from "./pages/thanks-page/thanks-page.component";
 	providers: [{ provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true }],
 	bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
