@@ -1,5 +1,7 @@
 import { Component,  AfterViewInit, ViewChild } from '@angular/core';
+import { CategoryService } from 'app/services/category.service';
 import { OrderService } from 'app/services/order.service';
+import { ProductService } from 'app/services/product.service';
 import { Chart } from 'chart.js/auto';
 
 @Component({
@@ -15,8 +17,30 @@ export class DashboardComponent implements  AfterViewInit{
 
   pieChart: any;
   data:number[]=[]
-  constructor(private orderBill:OrderService) {
-    this.orderBill.getBill().subscribe((item)=>this.data=item)
+  products:any[]=[]
+  cates:any[]=[]
+  sales:any=0
+  revenue:any[]=[]
+  money=0
+  orders:any[]=[]
+  constructor(private orderBill:OrderService,private productService:ProductService, private cateservice:CategoryService) {
+    this.orderBill.getBill().subscribe((item)=>{
+      for(let i = 0 ;i<item.arr.length;i++){
+         this.revenue.push(item.arr[i].reduce((acc:any, val:any) => acc + val, 0))
+       }
+      const date = new Date();
+      const getMonth = date.getMonth();
+        this.money=this.revenue[getMonth];
+      const sale = (this.revenue[getMonth]-this.revenue[getMonth-1])/this.revenue[getMonth-1]*100
+       if(isNaN(sale)){
+        this.sales=0
+       }else{
+        this.sales=sale
+       }
+    })
+    this.productService.getProducts({}).subscribe(({data})=>this.products=data)
+    this.cateservice.getCategories().subscribe(({data})=>this.cates=data)
+    this.orderBill.getAllOrders().subscribe(({data})=>this.orders=data)
   }
 
   ngAfterViewInit(): void {
@@ -45,7 +69,7 @@ export class DashboardComponent implements  AfterViewInit{
               '#777777',
               '#222222',
             ],
-            data: this.data,
+            data: this.revenue,
           },
         ],
       },
