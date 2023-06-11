@@ -16,6 +16,10 @@ export class ProductService {
 	getProduct(slug: string): Observable<any> {
 		return this._api.getTypeRequest("/products/" + slug);
 	}
+	getPrice({_price=""}):Observable<any>{
+		return this._api
+			.getTypeRequest(`/products/price?_price=${_price}`);
+	}
 
 	createProduct(payload: any): Observable<any> {
 		return this._api.postTypeRequest("/products/", payload);

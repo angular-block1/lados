@@ -31,6 +31,7 @@ const routes: Routes = [
 		children: [
 			{ path: "", component: HomePageComponent },
 			{ path: "products", component: ListProductComponent },
+			{ path: "products/:id", component: ListProductComponent },
 			{ path: "product/:slug", component: ProductDetailComponent },
 			{ path: "cart", component: CartComponent },
 			{ path: "orders", component: OrderListsPageComponent },
