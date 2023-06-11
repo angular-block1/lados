@@ -1,56 +1,81 @@
-
 <div class="relative overflow-x-auto">
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-                <th scope="col" class="px-6 py-3">
-                   #
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Tên khách hàng
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Tổng tiền
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Phương thức thanh toán
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Ngày tạo
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Trạng thái
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Chi tiết
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Apple MacBook Pro 17"
-                </th>
-                <td class="px-6 py-4">
-                    Silver
-                </td>
-                <td class="px-6 py-4">
-                    Silver
-                </td>
-                <td class="px-6 py-4">
-                    Laptop
-                </td>
-                <td class="px-6 py-4">
-                    Laptop
-                </td>
-                <td class="px-6 py-4">
-                    <button type="text" class="btn--green cursor-default">Đang xử lí</button>
-                </td>
-                <td class="px-6 py-4">
-                    <button type="text" class="btn--green" routerLink="1">Xem</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+	<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+		<thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+			<tr>
+				<th
+					scope="col"
+					class="px-6 py-3"
+				>
+					#
+				</th>
+				<th
+					scope="col"
+					class="px-6 py-3"
+				>
+					Người nhận
+				</th>
+				<th
+					scope="col"
+					class="px-6 py-3"
+				>
+					Tổng tiền
+				</th>
+				<th
+					scope="col"
+					class="px-6 py-3"
+				>
+					Phương thức thanh toán
+				</th>
+				<th
+					scope="col"
+					class="px-6 py-3"
+				>
+					Ngày tạo
+				</th>
+				<th
+					scope="col"
+					class="px-6 py-3"
+				>
+					Trạng thái
+				</th>
+				<th
+					scope="col"
+					class="px-6 py-3"
+				>
+					Chi tiết
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr
+				*ngFor="let order of orders; index as i"
+				class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+			>
+				<th
+					scope="row"
+					class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+				>
+					{{ i + 1 }}
+				</th>
+				<td class="px-6 py-4">{{ order.shipping.fullname }}</td>
+				<td class="px-6 py-4">{{ formatNumber(order.bill) }} VNĐ</td>
+				<td class="px-6 py-4">{{ order.payment.methods }}</td>
+				<td class="px-6 py-4">{{ formatDate(order.createdAt) }}</td>
+				<td class="px-6 py-4">
+					<button [class]="[checkOrderStatus(order.status)?.class, 'cursor-default']">
+						{{ checkOrderStatus(order.status)?.title }}
+					</button>
+				</td>
+				<td class="px-6 py-4">
+					<button
+						type="text"
+						class="btn--blue"
+						routerLink="{{ order._id }}"
+					>
+						Xem
+					</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
-

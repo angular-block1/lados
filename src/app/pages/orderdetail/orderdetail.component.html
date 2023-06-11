@@ -1,42 +1,80 @@
-<div>
-    <div class="flex justify-between">
-        <div>
-            <h1 class="text-sm font-semibold my-3">Chi tiết đơn hàng</h1>
-            <p class="text-sm my-3">Mã Đơn hàng: </p>
-            <button class="btn--green cursor-default my-3">Đang vận chuyển</button>
-        </div>
-        <div class="">
-            <select name="" id="" class="input w-[170px]">
-                <option value="" class="text-xs">Đang vận chuyển</option>
-            </select>
-        </div>
-    </div>
-    <div class="flex justify-between">
-        <div>
-            <h1 class="text-sm font-semibold my-3">Địa chỉ nhân hàng</h1>
-            <p class="text-sm my-3">Người nhận: </p>
-            <p class="text-sm my-3">SĐT: </p>
-            <p class="text-sm my-3">Địa chỉ: </p>
-            <p class="text-sm my-3">Ghi chú: </p>
-        </div>
-        <div>
-            <h1 class="text-sm font-semibold my-3">Phương thức thanh toán</h1>
-            <p class="text-sm my-3">Hình thức thanh toán: </p>
-            <p class="text-sm my-3">Trạng thái:</p>
-        </div>
-    </div>
-    <div class="mt-5 flex items-center">
-        <div>
-            <img class="w-[100px] h-[100px]" src="https://bizweb.dktcdn.net/thumb/1024x1024/100/426/984/products/0123a7b8a30234cbff048a731c013444-1684898297401.jpg?v=1684898372243" alt="">
-        </div>
-        <div class="w-[800px] ml-5">
-            <p class="text-sm">tên sản phẩm</p>
-        </div>
-        <div>
-            <p class="text-red-500 text-sm font-semibold">Giá:</p>
-        </div>
-    </div>
-    <div class="flex justify-end">
-        <h1 class="text-red-500 text-lg font-semibold">Tổng tiền:</h1>
-    </div>
+<div class="p-6">
+	<div class="flex justify-between">
+		<div>
+			<h1 class="text-xl font-semibold my-3">Chi tiết đơn hàng</h1>
+			<p class="text-sm my-2">
+				Mã Đơn hàng: <strong>#{{ order._id }}</strong>
+			</p>
+			<p
+				*ngIf="order.status !== 'cancelled'"
+				class="text-sm my-2"
+			>
+				Ngày đặt: <strong>{{ formatDate(order.createdAt) }}</strong>
+			</p>
+			<p
+				*ngIf="order.status == 'cancelled'"
+				class="text-sm my-2"
+			>
+				Ngày hủy: <strong class="text-red-500">{{ formatDate(order.updatedAt) }}</strong>
+			</p>
+			<button [class]="[checkOrderStatus(order.status)?.class, 'cursor-default']">
+				{{ checkOrderStatus(order.status)?.title }}
+			</button>
+		</div>
+		<div class="">
+			<select
+				(change)="handleChangeOrderStatus($event)"
+				class="input w-[170px]"
+			>
+				<option
+					*ngFor="let item of status"
+					value="{{ item.value }}"
+					[disabled]="item.disabled"
+					[selected]="item.value == order.status ? true : false"
+				>
+					{{ item.name }}
+				</option>
+			</select>
+		</div>
+	</div>
+	<div class="line my-6"></div>
+	<div class="flex justify-between">
+		<div>
+			<h1 class="text-base font-semibold my-3">Địa chỉ nhận hàng</h1>
+			<p class="text-sm my-3">Người nhận: {{ order.shipping.fullname }}</p>
+			<p class="text-sm my-3">SĐT: {{ order.shipping.phone }}</p>
+			<p class="text-sm my-3">Địa chỉ: {{ order.shipping.phone }}</p>
+			<p class="text-sm my-3">Ghi chú: {{ order.shipping.note }}</p>
+		</div>
+		<div>
+			<h1 class="text-base font-semibold my-3">Phương thức thanh toán</h1>
+			<p class="text-sm my-3">Hình thức thanh toán: {{ order.payment.methods }}</p>
+			<p class="text-sm my-3">Trạng thái: {{ order.payment.status ? "Rồi" : "Chưa" }}</p>
+			<p class="text-sm my-3">Đơn vị vận chuyển: AE Cây Khế</p>
+		</div>
+	</div>
+	<div
+		*ngFor="let product of order.products"
+		class="mt-5 flex items-center"
+	>
+		<div>
+			<img
+				class="w-[100px] h-[100px] border rounded-md"
+				src="{{ product.images[0] }}"
+				alt=""
+			/>
+		</div>
+		<div class="w-[800px] ml-5">
+			<p class="text-sm">
+				{{ product.name }} x <span class="text-red-500 text-base font-semibold">{{ product.quantity }}</span>
+			</p>
+			<p class="text-sm font-semibold">Giá: {{ formatNumber(product.price) }} VNĐ</p>
+		</div>
+	</div>
+
+	<div class="flex justify-start pt-8">
+		<h1 class="text-lg font-semibold">
+			Tổng tiền: <span class="text-red-500">{{ formatNumber(order.bill) }} VNĐ</span>
+		</h1>
+	</div>
 </div>
