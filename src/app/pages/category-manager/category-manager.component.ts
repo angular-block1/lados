@@ -11,14 +11,13 @@ import slugify from "slugify";
 export class CategoryManagerComponent {
 	categories: any = [];
 	category: any = {
-		id: "",
 		name: "",
 		slug: "",
 		createdAt: moment().format(),
 		updatedAt: moment().format(),
 	};
 	isUpdate: boolean = false;
-
+	isKhongxacdinh = "undefine"
 	constructor(private categoryService: CategoryService) {
 		this.categoryService.getCategories().subscribe((response) => (this.categories = response.data));
 	}
@@ -50,5 +49,6 @@ export class CategoryManagerComponent {
 	handleUpdate(id: string) {
 		this.isUpdate = true;
 		this.category = this.categories.find((item: any) => item._id === id);
+		console.log(this.category);
 	}
 }
