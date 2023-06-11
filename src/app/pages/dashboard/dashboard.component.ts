@@ -28,19 +28,18 @@ export class DashboardComponent implements  AfterViewInit{
       for(let i = 0 ;i<item.arr.length;i++){
          this.revenue.push(item.arr[i].reduce((acc:any, val:any) => acc + val, 0))
        }
+       console.log(this.revenue);
+       
       const date = new Date();
       const getMonth = date.getMonth();
         this.money=this.revenue[getMonth];
-      const sale = (this.revenue[getMonth]-this.revenue[getMonth-1])/this.revenue[getMonth-1]*100
-       if(isNaN(sale)){
-        this.sales=0
-       }else{
-        this.sales=sale
-       }
+        const sale = (this.revenue[getMonth]-this.revenue[getMonth-1])/(this.revenue[getMonth-1] || this.revenue[getMonth])*100
+        this.sales=sale  
     })
     this.productService.getProducts({}).subscribe(({data})=>this.products=data)
     this.cateservice.getCategories().subscribe(({data})=>this.cates=data)
     this.orderBill.getAllOrders().subscribe(({data})=>this.orders=data)
+    
   }
 
   ngAfterViewInit(): void {
@@ -51,24 +50,15 @@ export class DashboardComponent implements  AfterViewInit{
     this.ctx = this.canvas.getContext('2d');
 
     this.pieChart = new Chart(this.ctx, {
-      type: 'bar',
+      type: 'line',
       data: {
         labels: this.month,
         datasets: [
           {
-            backgroundColor: [
-              '#2ecc71',
-              '#3498db',
-              '#95a5a6',
-              '#9b59b6',
-              '#f1c40f',
-              '#e74c3c',
-              '#FFCCFF',
-              '#6600FF',
-              '#993300',
-              '#777777',
-              '#222222',
-            ],
+            label:"Doanh thu",
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1,
             data: this.revenue,
           },
         ],
