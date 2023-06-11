@@ -52,7 +52,7 @@
 		<p class="my-[40px] text-center text-2xl uppercase font-normal">hàng <span class="font-semibold">mới về</span>
 		</p>
 	</a>
-	<div class="my-4 grid grid-cols-2 md:grid-cols-4 gap-3">
+	<div class="my-4 grid grid-cols-2 md:grid-cols-4 gap-6">
 		<a  class="uppercase text-center my-4" *ngFor="let product of products" routerLink="/product/{{product.slug}}">
 			<div class="my-5">
 				<img src="{{ product.images && product.images[0] }}" class="my-5" alt="" />
@@ -60,7 +60,7 @@
 
 			<p class="text-sm text-slate-300">Hàng mới</p>
 			<p class="text-base font-semibold truncate">{{ product.name }}</p>
-			<p class="text-sm font-semibold text-slate-900">{{ product.price?.toLocaleString()}}VNĐ</p>
+			<p class="text-sm font-semibold text-slate-900">{{ product.price?.toLocaleString()}} VNĐ</p>
 		</a>
 	</div>
 	<div class="flex justify-center">
@@ -76,12 +76,11 @@
 	<a href="">
 		<p class="my-[40px] text-center text-2xl uppercase font-normal">áo <span class="font-semibold">sơ mi</span></p>
 	</a>
-	<div class="my-4 grid grid-cols-2 md:grid-cols-4 gap-3">
+	<div class="my-4 grid grid-cols-2 md:grid-cols-4 gap-6">
 		<a class="uppercase text-center my-4" *ngFor="let product of products" routerLink="/product/{{product.slug}}">
 			<img src="{{  product.images && product.images[0] }}" class="my-5" alt="" />
-			<p class="text-sm text-slate-300">Áo</p>
 			<p class="text-base font-semibold truncate">{{ product.name }}</p>
-			<p class="text-sm font-semibold text-slate-900">{{ product.price?.toLocaleString() }}VNĐ</p>
+			<p class="text-sm font-semibold text-slate-900">{{ product.price?.toLocaleString() }} VNĐ</p>
 		</a>
 	</div>
 	<div class="flex justify-center">
@@ -97,12 +96,11 @@
 	<a href="">
 		<p class="my-[40px] text-center text-2xl uppercase font-normal">quần <span class="font-semibold">nam</span></p>
 	</a>
-	<div class="my-4 grid grid-cols-2 md:grid-cols-4 gap-3">
+	<div class="my-4 grid grid-cols-2 md:grid-cols-4 gap-6">
 		<a class="uppercase text-center my-4" *ngFor="let trouser of trousers" routerLink="/product/{{trouser.slug}}">
 			<img src="{{  trouser.images && trouser.images[0]}}" class="my-5" alt="" />
-			<p class="text-sm text-slate-300">{{trouser.category.name}}</p>
 			<p class="text-base font-semibold truncate">{{ trouser.name }}</p>
-			<p class="text-sm font-semibold text-slate-900">{{ trouser.price.toLocaleString()}}VNĐ</p>
+			<p class="text-sm font-semibold text-slate-900">{{ trouser.price.toLocaleString()}} VNĐ</p>
 		</a>
 	</div>
 	<div class="flex justify-center">

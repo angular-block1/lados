@@ -27,8 +27,8 @@
 	</div>
 	<section class="w-full my-4">
 		<p class="uppercase font-bold text-2xl text-center">sản phẩm liên quan</p>
-		<div class="grid grid-cols-3 gap-3 ml-5" >
-			<div class="text-center items-center overflow-hidden card w-[290px] h-[390px] mb-2" *ngFor="let item of products">
+		<div class="grid grid-cols-4 gap-6 ml-5" >
+			<div class="text-center items-center overflow-hidden card mb-2" *ngFor="let item of products">
 				<div class="imgs_product relative">
 					<img
 						class="absolute inset-0 opacity-100 img_product duration-300"
@@ -41,11 +41,11 @@
 					/>
 				</div>
 				<div class="text">
-					<p class="text-sm font-semibold py-2">{{item.name}}</p>
-					<p class="text-sm py-2">{{formatNumber(item.price)}}VNĐ</p>
+					<p class="text-xs font-semibold py-2 truncate">{{item.name}}</p>
+					<p class="text-sm pb-2">{{formatNumber(item.price)}} VNĐ</p>
 				</div>
 				<div class="text-center btn relative">
-					<button class="bg-white text-black border w-[290px] h-[50px] up" (click)="nextpage(item.slug)">Tùy chọn</button>
+					<button class="bg-white text-black border w-full h-[50px] up" (click)="nextpage(item.slug)">Tùy chọn</button>
 				</div>
 			</div>
 		</div>
