@@ -16,6 +16,9 @@ export class ProductService {
 	getProduct(slug: string): Observable<any> {
 		return this._api.getTypeRequest("/products/" + slug);
 	}
+	searchProduct({_search=""}): Observable<any> {
+		return this._api.getTypeRequest(`/products/search?_search=${_search}`);
+	}
 	getPrice({_price=""}):Observable<any>{
 		return this._api
 			.getTypeRequest(`/products/price?_price=${_price}`);

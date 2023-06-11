@@ -14,19 +14,30 @@ export class ListProductComponent {
 	productDetail:any[]=[]
 	cates:any[]=[]
 	constructor(private productService: ProductService, private router:Router,private cate:CategoryService,private route:ActivatedRoute) {
-		this.productService.getProducts({}).subscribe((data) =>{
-			this.products=data.data
-			
-		} );
-		this.route.paramMap.subscribe((param)=>{
-			const id = String(param.get("id"))
-			this.productService.getProducts({_category:id}).subscribe(({data})=>this.products=data)
+		this.route.queryParams.subscribe((param:any)=>{
+			if(!param?.search){
+				this.productService.getProducts({}).subscribe((data) =>{
+					this.products=data.data
+				} );
+				this.route.paramMap.subscribe((param)=>{
+					const id = String(param.get("id"))
+					this.productService.getProducts({_category:id}).subscribe(({data})=>this.products=data)
+				})
+		
+				this.cate.getCategories().subscribe(({data})=>{
+					const arr =data.filter((item:any)=>item.name!="Không xác định")
+					console.log(arr);
+					this.cates= arr
+				})
+			}else{
+				const search = param.search
+				this.productService.searchProduct({_search:search}).subscribe(({data})=>this.products=data
+				)
+				
+			}
+
 		})
-		this.cate.getCategories().subscribe(({data})=>{
-			const arr =data.filter((item:any)=>item.name!="Không xác định")
-			console.log(arr);
-			this.cates= arr
-		})
+		
 	}
 	all(){
 		this.productService.getProducts({}).subscribe((data) =>{
