@@ -45,7 +45,7 @@
                 mục</label>
             <select name="category" formControlName="category" class="input">
                 <option class="py-2 uppercase" *ngFor="let category of categories" value="{{category._id}}"
-                    [selected]="">
+                    [selected]="category._id == currentCategory ? true: false">
                     {{category.name}}
                 </option>
             </select>
