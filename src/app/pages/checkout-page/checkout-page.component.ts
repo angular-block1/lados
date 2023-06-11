@@ -25,7 +25,13 @@ export class CheckoutPageComponent {
 	order: FormGroup;
 	check: boolean = false;
 
-	constructor(private _cart: CartService, private _order: OrderService, private fb: FormBuilder, private alert: SweetAlert2LoaderService, private router: Router) {
+	constructor(
+		private _cart: CartService,
+		private _order: OrderService,
+		private fb: FormBuilder,
+		private alert: SweetAlert2LoaderService,
+		private router: Router
+	) {
 		this.cart = this._cart.getCart();
 		this.total = this.cart.products.reduce((acc: number, product: any) => {
 			return (acc += product.quantity);
@@ -62,7 +68,9 @@ export class CheckoutPageComponent {
 	handleDistricts(e: any) {
 		let name = e.value;
 		const province = this.provinces.find((item: any) => item.name == name);
-		this._order.getProvinces(`/p/${province?.code}?depth=2`).subscribe((data: any) => (this.districts = data.districts));
+		this._order
+			.getProvinces(`/p/${province?.code}?depth=2`)
+			.subscribe((data: any) => (this.districts = data.districts));
 	}
 
 	handleWards(e: any) {
@@ -95,7 +103,7 @@ export class CheckoutPageComponent {
 			() => {
 				Swal.fire("Đặt hàng thành công", "", "success");
 				this._cart.clearCart();
-				this.router.navigate(["/"]);
+				this.router.navigate(["/orders"]);
 			},
 			(error) => Swal.fire("Có lỗi gì rồi :((", "", "error")
 		);
