@@ -99,7 +99,10 @@
 					<td class="px-6 py-4">{{ category?.slug }}</td>
 					<td class="px-6 py-4">{{ formatDate(category?.createdAt) }}</td>
 					<td class="px-6 py-4">{{ formatDate(category?.updatedAt) }}</td>
-					<td class="px-6 py-4 flex gap-4">
+					<td
+						class="px-6 py-4 flex gap-4"
+						*ngIf="category?.slug !== isKhongxacdinh"
+					>
 						<button
 							class="btn--red"
 							(click)="handleDelete(category?._id)"

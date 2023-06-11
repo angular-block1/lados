@@ -48,12 +48,23 @@ export class ProductDetailComponent {
   constructor(private productService: ProductService, private router: ActivatedRoute, private route: Router) {
     this.router.paramMap.subscribe(params => {
       const slug = String(params.get('slug'));
+
       this.productService.getProduct(slug).subscribe(data => {
         this.product = data.data
 
         this.productService.getProducts({ _category: data.data.category._id }).subscribe(({ data }) => this.products = data)
       })
     })
+  }
+
+  formatNumber(str: any) {
+    str = `${str}`;
+    return str
+      .split("")
+      .reverse()
+      .reduce((prev: any, next: any, index: any) => {
+        return (index % 3 ? next : next + ".") + prev;
+      });
   }
   nextpage(slug: string) {
     this.route.navigate([`product/${slug}`])

@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { CartService } from "app/services/cart.service";
+import { TokenStorageService } from "app/services/token-storage.service";
 import { BehaviorSubject } from "rxjs";
 
 @Component({
@@ -10,9 +11,12 @@ import { BehaviorSubject } from "rxjs";
 export class HeaderComponent {
 	cart = {};
 	total = 0;
+	user = {
+		name: "",
+	};
 
 	cartObs = new BehaviorSubject(this.cart);
-	constructor(private _cart: CartService) {
+	constructor(private _cart: CartService, private _token: TokenStorageService) {
 		this.cart = this._cart.getCart();
 		this.cartObs.next({ ...this.cart });
 		this.cartObs.subscribe((cart: any) => {
@@ -20,5 +24,6 @@ export class HeaderComponent {
 				return (acc += product.quantity);
 			}, 0);
 		});
+		this.user = this._token.getUser();
 	}
 }

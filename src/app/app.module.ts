@@ -1,9 +1,10 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { SweetAlert2Module } from "@sweetalert2/ngx-sweetalert2";
 import { ReactiveFormsModule } from "@angular/forms";
+import { MyInterceptor } from "./services/interceptor.service";
 
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./component/header/header.component";
@@ -29,10 +30,46 @@ import { CategoryManagerComponent } from "./pages/category-manager/category-mana
 import { OrderManagerComponent } from "./pages/order-manager/order-manager.component";
 import { ProductAddFormComponent } from "./pages/product-manager/product-add-form/product-add-form.component";
 import { ProductUpdateFormComponent } from "./pages/product-manager/product-update-form/product-update-form.component";
+
+import { OrderListsPageComponent } from "./pages/order-lists-page/order-lists-page.component";
+import { UserOrderDetailPageComponent } from "./pages/user-order-detail-page/user-order-detail-page.component";
+import { ThanksPageComponent } from "./pages/thanks-page/thanks-page.component";
 @NgModule({
-	declarations: [AppComponent, HeaderComponent, FooterComponent, LayoutAdminComponent, LayoutClientComponent, ProductDetailComponent, CartComponent, ListProductComponent, HomePageComponent, LoginComponent, DetailComponent, NavComponent, SignUpPageComponent, DashboardComponent, ProductManagerComponent, CategoryManagerComponent, CheckoutPageComponent, OrderManagerComponent, ProductAddFormComponent, ProductUpdateFormComponent],
-	imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, CarouselModule, ReactiveFormsModule, SweetAlert2Module.forRoot()],
-	providers: [],
+	declarations: [
+		AppComponent,
+		HeaderComponent,
+		FooterComponent,
+		LayoutAdminComponent,
+		LayoutClientComponent,
+		ProductDetailComponent,
+		CartComponent,
+		ListProductComponent,
+		HomePageComponent,
+		LoginComponent,
+		DetailComponent,
+		NavComponent,
+		SignUpPageComponent,
+		DashboardComponent,
+		ProductManagerComponent,
+		CategoryManagerComponent,
+		CheckoutPageComponent,
+		OrderManagerComponent,
+		ProductAddFormComponent,
+		ProductUpdateFormComponent,
+		OrderListsPageComponent,
+		UserOrderDetailPageComponent,
+		ThanksPageComponent,
+	],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		HttpClientModule,
+		FormsModule,
+		CarouselModule,
+		ReactiveFormsModule,
+		SweetAlert2Module.forRoot(),
+	],
+	providers: [{ provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true }],
 	bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

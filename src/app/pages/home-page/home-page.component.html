@@ -60,7 +60,7 @@
 
 			<p class="text-sm text-slate-300">Danh mục</p>
 			<p class="text-base font-semibold truncate">{{ product.name }}</p>
-			<p class="text-sm font-semibold text-slate-900">{{ product.price }} ₫</p>
+			<p class="text-sm font-semibold text-slate-900">{{ product.price?.toLocaleString()}}VNĐ</p>
 		</a>
 	</div>
 	<div class="flex justify-center">
@@ -81,7 +81,7 @@
 			<img src="{{  product.images && product.images[0] }}" class="my-5" alt="" />
 			<p class="text-sm text-slate-300">Danh mục</p>
 			<p class="text-base font-semibold truncate">{{ product.name }}</p>
-			<p class="text-sm font-semibold text-slate-900">{{ product.price }} ₫</p>
+			<p class="text-sm font-semibold text-slate-900">{{ product.price?.toLocaleString() }}VNĐ</p>
 		</a>
 	</div>
 	<div class="flex justify-center">
@@ -102,7 +102,7 @@
 			<img src="{{  trouser.images && trouser.images[0]}}" class="my-5" alt="" />
 			<p class="text-sm text-slate-300">Danh mục</p>
 			<p class="text-base font-semibold truncate">{{ trouser.name }}</p>
-			<p class="text-sm font-semibold text-slate-900">{{ trouser.price }} ₫</p>
+			<p class="text-sm font-semibold text-slate-900">{{ trouser.price.toLocaleString()}}VNĐ</p>
 		</a>
 	</div>
 	<div class="flex justify-center">
