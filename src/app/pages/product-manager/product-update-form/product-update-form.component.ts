@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ICategory } from 'app/interfaces/Category';
-import { IProduct } from 'app/interfaces/Product';
 import { CategoryService } from 'app/services/category.service';
 import { ProductService } from 'app/services/product.service';
 import { UploadImageService } from 'app/services/upload-image.service';
