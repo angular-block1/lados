@@ -14,15 +14,6 @@ import slugify from 'slugify'
   styleUrls: ['./product-add-form.component.scss']
 })
 export class ProductAddFormComponent {
-  // product: IProduct = {
-  //   name: "",
-  //   price: 0,
-  //   images: [""],
-  //   category: "",
-  //   stock: 0,
-  //   slug: "",
-  //   description: ""
-  // }
   productForm: FormGroup
   categories: ICategory[] = []
   imageURLs: string[] = []

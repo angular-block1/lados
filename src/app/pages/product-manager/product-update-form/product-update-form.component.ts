@@ -14,7 +14,7 @@ import slugify from 'slugify';
   styleUrls: ['./product-update-form.component.scss']
 })
 export class ProductUpdateFormComponent {
-  isSelected: boolean = false
+  currentCategory: any
   categories: ICategory[] = []
   imageURLs: string[] = []
   productForm = this.fb.group({
@@ -44,10 +44,11 @@ export class ProductUpdateFormComponent {
           this.productForm?.get('stock')?.setValue(data.stock, { emitEvent: false })
           this.productForm?.get('description')?.setValue(data.description, { emitEvent: false })
           this.productForm?.get('category')?.setValue(data.category, { emitEvent: false })
+          this.currentCategory = data.category._id
         })
       }
     })
-    console.log(this.productForm)
+
     this.categoryService.getCategories().subscribe(response => this.categories = response.data)
   }
 

@@ -48,7 +48,7 @@
 
 </div>
 
-<nav class="mt-4 flex justify-end items-center" *ngIf="totalPages != 1">
+<nav class="mt-4 flex justify-end items-center" *ngIf="totalPages > 1">
     <ul class="inline-flex -space-x-px">
         <li>
             <button (click)="prevPage()"
