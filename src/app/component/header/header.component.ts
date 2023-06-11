@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
 import { CartService } from "app/services/cart.service";
 import { CategoryService } from "app/services/category.service";
 import { TokenStorageService } from "app/services/token-storage.service";
@@ -11,6 +12,7 @@ import { BehaviorSubject } from "rxjs";
 })
 export class HeaderComponent {
 	cart = {};
+	search:string=""
 	cates:any[]=[]
 	total = 0;
 	user = {
@@ -18,7 +20,7 @@ export class HeaderComponent {
 	};
 
 	cartObs = new BehaviorSubject(this.cart);
-	constructor(private _cart: CartService, private _token: TokenStorageService ,private cateService:CategoryService) {
+	constructor(private _cart: CartService, private _token: TokenStorageService ,private cateService:CategoryService,private router:Router,private route:ActivatedRoute) {
 		this.cateService.getCategories().subscribe(({data})=>{
 			const arr =data.filter((item:any)=>item.name!="Không xác định")
 			this.cates=arr
@@ -31,5 +33,14 @@ export class HeaderComponent {
 			}, 0);
 		});
 		this.user = this._token.getUser();
+	}
+	onHandlesubmit(){
+		this.router.navigate(
+			['/products'], 
+			{
+			  relativeTo: this.route,
+			  queryParams: { search: this.search },
+			  queryParamsHandling: 'merge'
+			});
 	}
 }

@@ -1,48 +1,29 @@
-<div class="container mx-auto md:px-[200px] mb-20">
+<div class="container mx-auto lg:px-[200px] mb-20">
 	<div class="text-center mb-5 uppercase">
 		<h1 class="text-3xl font-semibold mb-2">quản lí đơn hàng</h1>
 		<p class="text-base">Mọi thông tin cơ bản về đơn hàng của bạn sẽ xuất hiện tại đây!</p>
 	</div>
 	<!-- Div hiển thị 1 đơn hàng -->
-	<div
-		*ngFor="let order of orders"
-		class="border-b py-4"
-	>
-		<a
-			[routerLink]="['/orders', order._id]"
-			class="text-base font-semibold mb-2"
-			>Mã đơn hàng: #{{ order._id }}</a
-		>
+	<div *ngFor="let order of orders" class="border-b py-4">
+		<a [routerLink]="['/orders', order._id]" class="text-base font-semibold mb-2">Mã đơn hàng: #{{ order._id }}</a>
 		<div class="flex justify-between items-center">
-			<span
-				*ngIf="order.status !== 'cancelled'"
-				class="text-sm"
-				>Ngày đặt hàng: <strong>{{ formatDate(order.createdAt) }}</strong></span
-			>
+			<span *ngIf="order.status !== 'cancelled'" class="text-sm">Ngày đặt hàng: <strong>{{
+					formatDate(order.createdAt) }}</strong></span>
 
-			<span
-				*ngIf="order.status == 'cancelled'"
-				class="text-sm"
-				>Ngày hủy: <strong class="text-red-500">{{ formatDate(order.updatedAt) }}</strong></span
-			>
+			<span *ngIf="order.status == 'cancelled'" class="text-sm">Ngày hủy: <strong class="text-red-500">{{
+					formatDate(order.updatedAt) }}</strong></span>
 			<div class="flex gap-4">
 				<button [class]="[checkOrderStatus(order.status)?.class, 'cursor-default']">
 					{{ checkOrderStatus(order.status)?.title }}
 				</button>
-				<button
-					*ngIf="checkShowButtom(order) && order.status !== 'cancelled'"
-					class="btn--red"
-					(click)="cancelledOrder(order._id)"
-				>
+				<button *ngIf="checkShowButtom(order) && order.status !== 'cancelled'" class="btn--red"
+					(click)="cancelledOrder(order._id)">
 					Hủy
 				</button>
 			</div>
 		</div>
 		<div class="flex flex-col py-4 gap-2">
-			<div
-				*ngFor="let product of order.products"
-				class="flex justify-between items-center"
-			>
+			<div *ngFor="let product of order.products" class="flex justify-between items-center">
 				<p class="text-xs">
 					{{ product.name }} x
 					<span class="text-red-500 text-base font-semibold">{{ product.quantity }}</span>

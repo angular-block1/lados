@@ -32,6 +32,7 @@ const routes: Routes = [
 			{ path: "", component: HomePageComponent },
 			{ path: "products", component: ListProductComponent },
 			{ path: "products/:id", component: ListProductComponent },
+			{ path: "products/:search", component: ListProductComponent },
 			{ path: "product/:slug", component: ProductDetailComponent },
 			{ path: "cart", component: CartComponent },
 			{ path: "orders", component: OrderListsPageComponent },
@@ -66,7 +67,7 @@ const routes: Routes = [
 				component: ProductAddFormComponent,
 			},
 			{
-				path: "products/:id/update",
+				path: "products/:slug/update",
 				component: ProductUpdateFormComponent,
 			},
 			{

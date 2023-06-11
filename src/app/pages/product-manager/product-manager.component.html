@@ -39,9 +39,28 @@
                 <td class="px-6 py-4">{{ product.updatedAt }}</td>
                 <td class="px-6 py-4 flex gap-2">
                     <button class="btn--red" (click)="onRemove(product._id)">Xóa</button>
-                    <a routerLink="{{product._id}}/update"><button class="btn--blue">Cập nhật</button></a>
+                    <a routerLink="{{product.slug}}/update"><button class="btn--blue">Cập nhật</button></a>
                 </td>
             </tr>
         </tbody>
     </table>
+
+
 </div>
+
+<nav class="mt-4 flex justify-end items-center" *ngIf="totalPages > 1">
+    <ul class="inline-flex -space-x-px">
+        <li>
+            <button (click)="prevPage()"
+                class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Prev</button>
+        </li>
+        <li *ngFor="let item of getRange(totalPages)">
+            <button (click)="changeCurrentPage(item)"
+                class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">{{item}}</button>
+        </li>
+        <li>
+            <button (click)="nextPage()"
+                class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</button>
+        </li>
+    </ul>
+</nav>
