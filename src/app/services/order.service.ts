@@ -8,9 +8,15 @@ import { HttpClient } from "@angular/common/http";
 })
 export class OrderService {
 	constructor(private _http: HttpClient, private _api: ApiService) {}
-	getAllOrders() {}
+	getAllOrders(): Observable<any> {
+		return this._api.getTypeRequest("/order");
+	}
 
-	getBill() {
+	getOrder(id: string): Observable<any> {
+		return this._api.getTypeRequest("/order/" + id);
+	}
+
+	getBill(): Observable<any> {
 		return this._api.getTypeRequest("/order/ds");
 	}
 

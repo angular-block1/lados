@@ -18,7 +18,11 @@ import { ProductUpdateFormComponent } from "./pages/product-manager/product-upda
 import { OrderdetailComponent } from "./pages/orderdetail/orderdetail.component";
 import { OrderListsPageComponent } from "./pages/order-lists-page/order-lists-page.component";
 import { UserOrderDetailPageComponent } from "./pages/user-order-detail-page/user-order-detail-page.component";
+
+import { ThanksPageComponent } from "./pages/thanks-page/thanks-page.component";
 import { authGuard } from "./auth.guard";
+
+
 
 const routes: Routes = [
 	{
@@ -38,6 +42,10 @@ const routes: Routes = [
 	{
 		path: "checkout",
 		component: CheckoutPageComponent,
+	},
+	{
+		path: "thanks",
+		component: ThanksPageComponent,
 	},
 	{
 		path: "admin",

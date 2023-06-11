@@ -35,12 +35,12 @@ export class CartService {
 	}
 
 	addToCart(product: any, quantity: number) {
-		const { id } = product;
+		const { _id: id } = product;
 
 		if (!this.isProductInCart(id as string)) {
 			if (quantity)
 				this.cart.products.push({
-					id: product.id,
+					id: product._id,
 					name: product.name,
 					price: product.price,
 					image: product.images[0],
@@ -48,7 +48,7 @@ export class CartService {
 				});
 			else
 				this.cart.products.push({
-					id: product.id,
+					id: product._id,
 					name: product.name,
 					price: product.price,
 					image: product.images[0],
