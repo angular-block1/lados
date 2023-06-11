@@ -1,5 +1,6 @@
 <form
 	class="w-full max-w-2xl mx-auto my-5 p-4"
+	[formGroup]="auth"
 	(ngSubmit)="onHandleSubmit()"
 >
 	<div class="text-center mb-5">
@@ -15,13 +16,17 @@
 			Tên đầy đủ*
 		</label>
 		<input
-			class="w-[600px] h-[50px] text-sm pl-4 bg-slate-100 rounded-sm mb-5 outline-none"
-			type="email"
+			class="w-[600px] h-[50px] text-sm pl-4 bg-slate-100 rounded-sm mb-2 outline-none"
+			type="text"
 			placeholder="Nhập họ tên"
-			required
-			[(ngModel)]="auth.name"
 			name="name"
+			formControlName="name"
 		/>
+		<span
+			*ngIf="check && auth?.controls?.['name']?.errors?.['required']"
+			class="text-sm block text-red-400 font-medium text-left"
+			>Vui lòng nhập thông tin</span
+		>
 	</div>
 
 	<div class="mb-5">
@@ -32,13 +37,22 @@
 			Email*
 		</label>
 		<input
-			class="w-[600px] h-[50px] text-sm pl-4 bg-slate-100 rounded-sm mb-5 outline-none"
+			class="w-[600px] h-[50px] text-sm pl-4 bg-slate-100 rounded-sm mb-2 outline-none"
 			type="email"
 			placeholder="Email"
-			required
-			[(ngModel)]="auth.email"
+			formControlName="email"
 			name="email"
 		/>
+		<span
+			*ngIf="check && auth?.controls?.['email']?.errors?.['required']"
+			class="text-sm block text-red-400 font-medium text-left"
+			>Vui lòng nhập thông tin</span
+		>
+		<span
+			*ngIf="check && auth?.controls?.['email']?.errors?.['email']"
+			class="text-sm block text-red-400 font-medium text-left"
+			>Email không đúng định dạng</span
+		>
 	</div>
 
 	<div class="mb-5">
@@ -49,35 +63,43 @@
 			Mật khẩu*
 		</label>
 		<input
-			class="w-[600px] h-[50px] text-sm pl-4 bg-slate-100 rounded-sm mb-5 outline-none"
+			class="w-[600px] h-[50px] text-sm pl-4 bg-slate-100 rounded-sm mb-2 outline-none"
 			type="password"
 			placeholder="Nhập mật khẩu"
-			required
-			[(ngModel)]="auth.password"
+			formControlName="password"
 			name="password"
 		/>
+		<span
+			*ngIf="check && auth?.controls?.['password']?.errors?.['required']"
+			class="text-sm block text-red-400 font-medium text-left"
+			>Vui lòng nhập thông tin</span
+		>
 	</div>
 
 	<div class="mb-5">
 		<label
 			class="block text-gray-700 text-sm font-bold uppercase mb-2"
-			for="confirmPassword"
+			for="confirmpassword"
 		>
 			Xác nhận mật khẩu*
 		</label>
 		<input
-			class="w-[600px] h-[50px] text-sm pl-4 bg-slate-100 rounded-sm mb-5 outline-none"
+			class="w-[600px] h-[50px] text-sm pl-4 bg-slate-100 rounded-sm mb-2 outline-none"
 			type="password"
 			placeholder="Xác nhận mật khẩu"
-			required
-			[(ngModel)]="auth.confirmpassword"
+			formControlName="confirmpassword"
 			name="confirmpassword"
 		/>
+		<span
+			*ngIf="check && auth?.controls?.['confirmpassword']?.errors?.['required']"
+			class="text-sm block text-red-400 font-medium text-left"
+			>Vui lòng nhập thông tin</span
+		>
 	</div>
 	<div class="flex justify-center">
 		<button
 			type="submit"
-			class="up w-[290px] h-[50px] border"
+			class="up w-[290px] h-[50px] border rounded"
 		>
 			Đăng kí
 		</button>
