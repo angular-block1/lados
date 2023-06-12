@@ -1,9 +1,6 @@
 <div class="container mx-auto w-[1200px] mt-[30px] max-w-full">
-	<form
-		[formGroup]="order"
-		(ngSubmit)="onSubmit()"
-		class="w-full grid grid-cols-1 sm:grid-cols-1 xl:grid-cols-[800px_repeat(1,_1fr)]"
-	>
+	<form [formGroup]="order" (ngSubmit)="onSubmit()"
+		class="w-full grid grid-cols-1 sm:grid-cols-1 xl:grid-cols-[800px_repeat(1,_1fr)]">
 		<div class="w-full p-7">
 			<h2 class="font-semibold text-3xl text-[#2a9dcc]">Lados</h2>
 			<div class="grid grid-cols-1 xl:grid-cols-2 py-4 gap-10">
@@ -11,253 +8,135 @@
 					<h3 class="text-lg font-bold py-2">Thông tin nhận hàng</h3>
 					<div class="row w-full mt-4">
 						<label for="email">
-							<input
-								type="email"
-								name="email"
-								placeholder="Email*"
-								class="input"
-								id="email"
-								formControlName="email"
-							/>
-							<span
-								*ngIf="check && order?.controls?.['email']?.errors?.['required']"
-								class="text-sm block text-red-400 font-medium mt-1"
-								>Vui lòng nhập thông tin</span
-							>
-							<span
-								*ngIf="check && order?.controls?.['email']?.errors?.['email']"
-								class="text-sm block text-red-400 font-medium mt-1"
-								>Email không đúng định dạng</span
-							>
+							<input type="email" name="email" placeholder="Email*" class="input" id="email"
+								formControlName="email" />
+							<span *ngIf="check && order?.controls?.['email']?.errors?.['required']"
+								class="text-sm block text-red-400 font-medium mt-1">Vui lòng nhập thông tin</span>
+							<span *ngIf="check && order?.controls?.['email']?.errors?.['email']"
+								class="text-sm block text-red-400 font-medium mt-1">Email không đúng định dạng</span>
 						</label>
 					</div>
 					<div class="row w-full mt-4">
 						<label for="fullname">
-							<input
-								type="text"
-								name="fullname"
-								placeholder="Tên người nhận hàng"
-								class="input"
-								formControlName="fullname"
-							/>
-							<span
-								*ngIf="check && order?.controls?.['fullname']?.errors?.['required']"
-								class="text-sm block text-red-400 font-medium mt-1"
-								>Vui lòng nhập thông tin</span
-							>
+							<input type="text" name="fullname" placeholder="Tên người nhận hàng" class="input"
+								formControlName="fullname" />
+							<span *ngIf="check && order?.controls?.['fullname']?.errors?.['required']"
+								class="text-sm block text-red-400 font-medium mt-1">Vui lòng nhập thông tin</span>
 						</label>
 					</div>
 					<div class="row w-full mt-4">
 						<label for="phone">
-							<input
-								type="text"
-								name="phone"
-								placeholder="SĐT"
-								class="input"
-								formControlName="phone"
-							/>
-							<span
-								*ngIf="check && order?.controls?.['phone']?.errors?.['required']"
-								class="text-sm block text-red-400 font-medium mt-1"
-								>Vui lòng nhập thông tin</span
-							>
-							<span
-								*ngIf="check && order?.controls?.['phone']?.errors?.['pattern']"
-								class="text-sm block text-red-400 font-medium mt-1"
-								>SĐT không đúng định dạng</span
-							>
+							<input type="text" name="phone" placeholder="SĐT" class="input" formControlName="phone" />
+							<span *ngIf="check && order?.controls?.['phone']?.errors?.['required']"
+								class="text-sm block text-red-400 font-medium mt-1">Vui lòng nhập thông tin</span>
+							<span *ngIf="check && order?.controls?.['phone']?.errors?.['pattern']"
+								class="text-sm block text-red-400 font-medium mt-1">SĐT không đúng định dạng</span>
 						</label>
 					</div>
 					<div class="row w-full mt-4">
 						<label for="address">
-							<input
-								type="text"
-								name="address"
-								placeholder="Địa chỉ cụ thể"
-								class="input"
-								formControlName="address"
-							/>
-							<span
-								*ngIf="check && order?.controls?.['address']?.errors?.['required']"
-								class="text-sm block text-red-400 font-medium mt-1"
-								>Vui lòng nhập thông tin</span
-							>
+							<input type="text" name="address" placeholder="Địa chỉ cụ thể" class="input"
+								formControlName="address" />
+							<span *ngIf="check && order?.controls?.['address']?.errors?.['required']"
+								class="text-sm block text-red-400 font-medium mt-1">Vui lòng nhập thông tin</span>
 						</label>
 					</div>
 					<div class="row w-full mt-4">
 						<label for="city">
-							<select
-								id="small"
+							<select id="small"
 								class="block px-4 w-full h-[48px] text-sm text-gray-900 border border-gray-200 rounded"
-								(change)="handleDistricts($event.target)"
-								formControlName="province"
-							>
-								<option
-									value=""
-									selected
-									disabled
-								>
+								(change)="handleDistricts($event.target)" formControlName="province">
+								<option value="" selected disabled>
 									-- Tỉnh thành --
 								</option>
-								<option
-									*ngFor="let province of provinces"
-									value="{{ province.name }}"
-								>
+								<option *ngFor="let province of provinces" value="{{ province.name }}">
 									{{ province.name }}
 								</option>
 							</select>
 						</label>
-						<span
-							*ngIf="check && order?.controls?.['province']?.errors?.['required']"
-							class="text-sm block text-red-400 font-medium mt-1"
-							>Vui lòng chọn thành phố</span
-						>
+						<span *ngIf="check && order?.controls?.['province']?.errors?.['required']"
+							class="text-sm block text-red-400 font-medium mt-1">Vui lòng chọn thành phố</span>
 					</div>
 					<div class="row w-full mt-4">
 						<label for="city">
-							<select
-								id="small"
+							<select id="small"
 								class="block px-4 w-full h-[48px] text-sm text-gray-900 border border-gray-200 rounded"
-								(change)="handleWards($event.target)"
-								formControlName="district"
-							>
-								<option
-									value=""
-									selected
-									disabled
-								>
+								(change)="handleWards($event.target)" formControlName="district">
+								<option value="" selected disabled>
 									-- Quận/Huyện --
 								</option>
-								<option
-									*ngFor="let district of districts"
-									value="{{ district.name }}"
-								>
+								<option *ngFor="let district of districts" value="{{ district.name }}">
 									{{ district.name }}
 								</option>
 							</select>
 						</label>
-						<span
-							*ngIf="check && order?.controls?.['district']?.errors?.['required']"
-							class="text-sm block text-red-400 font-medium mt-1"
-							>Vui lòng chọn quận/huyện</span
-						>
+						<span *ngIf="check && order?.controls?.['district']?.errors?.['required']"
+							class="text-sm block text-red-400 font-medium mt-1">Vui lòng chọn quận/huyện</span>
 					</div>
 					<div class="row w-full mt-4">
 						<label for="city">
-							<select
-								id="small"
+							<select id="small"
 								class="block px-4 w-full h-[48px] text-sm text-gray-900 border border-gray-200 rounded"
-								formControlName="ward"
-							>
-								<option
-									value=""
-									selected
-									disabled
-								>
+								formControlName="ward">
+								<option value="" selected disabled>
 									-- Phường/Xã --
 								</option>
-								<option
-									*ngFor="let ward of wards"
-									value="{{ ward.name }}"
-								>
+								<option *ngFor="let ward of wards" value="{{ ward.name }}">
 									{{ ward.name }}
 								</option>
 							</select>
 						</label>
-						<span
-							*ngIf="check && order?.controls?.['ward']?.errors?.['required']"
-							class="text-sm block text-red-400 font-medium mt-1"
-							>Vui lòng chọn phường/xã</span
-						>
+						<span *ngIf="check && order?.controls?.['ward']?.errors?.['required']"
+							class="text-sm block text-red-400 font-medium mt-1">Vui lòng chọn phường/xã</span>
 					</div>
 					<div class="row w-full mt-4">
 						<label for="note">
-							<textarea
-								rows="4"
-								class="block p-4 w-full h-[80px] text-sm rounded border outline-none"
-								placeholder="Ghi chú"
-								formControlName="note"
-							></textarea>
+							<textarea rows="4" class="block p-4 w-full h-[80px] text-sm rounded border outline-none"
+								placeholder="Ghi chú" formControlName="note"></textarea>
 						</label>
-						<span
-							*ngIf="check && order?.controls?.['note']?.errors?.['required']"
-							class="text-sm block text-red-400 font-medium mt-1"
-							>Vui lòng nhập thông tin</span
-						>
+						<span *ngIf="check && order?.controls?.['note']?.errors?.['required']"
+							class="text-sm block text-red-400 font-medium mt-1">Vui lòng nhập thông tin</span>
 					</div>
 				</div>
 				<div>
 					<h3 class="text-lg font-bold py-2">Thanh toán</h3>
 					<div class="row w-full mt-4">
-						<label
-							for="payment"
-							class="flex items-center border border-gray-200 rounded px-4 h-[48px]"
-						>
-							<input
-								type="radio"
-								value="COD"
-								name="payment"
-								formControlName="payment"
-								class="w-4 h-4 text-blue-600 bg-gray-100"
-							/>
+						<label for="payment" class="flex items-center border border-gray-200 rounded px-4 h-[48px]">
+							<input type="radio" value="COD" name="payment" formControlName="payment"
+								class="w-4 h-4 text-blue-600 bg-gray-100" />
 							<span class="text-sm font-normal ml-3">Thanh toán khi giao hàng (COD)</span>
 						</label>
 					</div>
 					<div class="row w-full mt-4">
-						<label
-							for="payment"
-							class="flex items-center border border-gray-200 rounded px-4 h-[48px]"
-						>
-							<input
-								type="radio"
-								value="MOMO"
-								name="payment"
-								formControlName="payment"
-								class="w-4 h-4 text-blue-600 bg-gray-100"
-							/>
+						<label for="payment" class="flex items-center border border-gray-200 rounded px-4 h-[48px]">
+							<input type="radio" value="MOMO" name="payment" formControlName="payment"
+								class="w-4 h-4 text-blue-600 bg-gray-100" />
 							<span class="text-sm font-normal ml-3">Thanh toán momo</span>
 						</label>
 					</div>
 					<div class="row w-full mt-4">
-						<label
-							for="payment"
-							class="flex items-center border border-gray-200 rounded px-4 h-[48px]"
-						>
-							<input
-								type="radio"
-								value="VNPAY"
-								name="payment"
-								formControlName="payment"
-								class="w-4 h-4 text-blue-600 bg-gray-100"
-							/>
+						<label for="payment" class="flex items-center border border-gray-200 rounded px-4 h-[48px]">
+							<input type="radio" value="VNPAY" name="payment" formControlName="payment"
+								class="w-4 h-4 text-blue-600 bg-gray-100" />
 							<span class="text-sm font-normal ml-3">Thanh toán vnpay</span>
 						</label>
 					</div>
-					<span
-						*ngIf="check && order?.controls?.['payment']?.errors?.['required']"
-						class="text-sm block text-red-400 font-medium mt-1"
-						>Vui lòng chọn phương thức thanh toán</span
-					>
+					<span *ngIf="check && order?.controls?.['payment']?.errors?.['required']"
+						class="text-sm block text-red-400 font-medium mt-1">Vui lòng chọn phương thức thanh toán</span>
 				</div>
 			</div>
 		</div>
 		<div class="p-7 border-l border-gray-300">
 			<h1 class="font-semibold text-2xl">Đơn hàng ({{ total }})</h1>
 			<div class="grid grid-cols-1 pt-4 mt-4 border-t border-gray-300">
-				<div
-					*ngFor="let product of cart?.products"
-					class="row py-4 flex items-center gap-2 border-b border-gray-300"
-				>
+				<div *ngFor="let product of cart?.products"
+					class="row py-4 flex items-center gap-2 border-b border-gray-300">
 					<div class="w-[50px] h-[50px] relative">
-						<img
-							src="{{ product.image }}"
-							class="w-full h-full object-cover rounded border border-gray-300"
-							alt=""
-						/>
+						<img src="{{ product.image.url }}"
+							class="w-full h-full object-cover rounded border border-gray-300" alt="" />
 						<span
-							class="absolute -top-3 z-10 -right-2 w-4 h-4 bg-[#2a9dcc] text-xs font-normal rounded-full text-white flex items-center justify-center"
-							>{{ product.quantity }}</span
-						>
+							class="absolute -top-3 z-10 -right-2 w-4 h-4 bg-[#2a9dcc] text-xs font-normal rounded-full text-white flex items-center justify-center">{{
+							product.quantity }}</span>
 					</div>
 					<p class="flex-1 text-sm font-normal">{{ product.name }}</p>
 					<p class="text-sm font-normal text-gray-500">{{ formatNumber(product.price) }}đ</p>
@@ -276,10 +155,7 @@
 					<p class="text-base font-normal mt-6">Tổng cộng</p>
 					<p class="text-xl font-semibold text-[#2a9dcc] mt-6">{{ formatNumber(cart.bill) }}đ</p>
 				</div>
-				<button
-					class="mt-4 btn--large bg-[#2a9dcc] text-white font-medium"
-					type="submit"
-				>
+				<button class="mt-4 btn--large bg-[#2a9dcc] text-white font-medium" type="submit">
 					Đặt Hàng
 				</button>
 			</div>
