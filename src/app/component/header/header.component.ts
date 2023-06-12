@@ -12,18 +12,18 @@ import { BehaviorSubject } from "rxjs";
 })
 export class HeaderComponent {
 	cart = {};
-	search:string=""
-	cates:any[]=[]
+	search: string = ""
+	cates: any[] = []
 	total = 0;
 	user = {
 		name: "",
 	};
 
 	cartObs = new BehaviorSubject(this.cart);
-	constructor(private _cart: CartService, private _token: TokenStorageService ,private cateService:CategoryService,private router:Router,private route:ActivatedRoute) {
-		this.cateService.getCategories().subscribe(({data})=>{
-			const arr =data.filter((item:any)=>item.name!="Không xác định")
-			this.cates=arr
+	constructor(private _cart: CartService, private _token: TokenStorageService, private cateService: CategoryService, private router: Router, private route: ActivatedRoute) {
+		this.cateService.getCategories().subscribe(({ data }) => {
+			const arr = data.filter((item: any) => item.name != "Không xác định")
+			this.cates = arr
 		})
 		this.cart = this._cart.getCart();
 		this.cartObs.next({ ...this.cart });
@@ -34,13 +34,16 @@ export class HeaderComponent {
 		});
 		this.user = this._token.getUser();
 	}
-	onHandlesubmit(){
+	onHandlesubmit() {
 		this.router.navigate(
-			['/products'], 
+			['/products'],
 			{
-			  relativeTo: this.route,
-			  queryParams: { search: this.search },
-			  queryParamsHandling: 'merge'
+				relativeTo: this.route,
+				queryParams: { search: this.search },
+				queryParamsHandling: 'merge'
 			});
+	}
+	logOut() {
+		this._token.clearLocalstorage()
 	}
 }
