@@ -14,6 +14,7 @@ import slugify from 'slugify';
 })
 export class ProductUpdateFormComponent {
   currentCategory: any
+  currentId: any
   categories: ICategory[] = []
   imageURLs: any[] = []
   oldImageURLs: any[] = []
@@ -45,6 +46,7 @@ export class ProductUpdateFormComponent {
           this.productForm?.get('description')?.setValue(data.description, { emitEvent: false })
           this.productForm?.get('category')?.setValue(data.category, { emitEvent: false })
           this.currentCategory = data.category._id
+          this.currentId = data._id
           this.oldImageURLs = data.images
         })
       }
@@ -64,7 +66,7 @@ export class ProductUpdateFormComponent {
   }
   handleSubmit() {
     if (this.productForm.invalid) return
-    this.productService.createProduct({ ...this.productForm.value, images: [...this.imageURLs, ...this.oldImageURLs] }).subscribe(() => {
+    this.productService.updateProduct(this.currentId, { ...this.productForm.value, images: [...this.imageURLs, ...this.oldImageURLs] }).subscribe(() => {
       this.router.navigateByUrl("admin/products")
     })
   }
