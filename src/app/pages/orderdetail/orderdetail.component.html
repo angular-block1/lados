@@ -5,16 +5,10 @@
 			<p class="text-sm my-2">
 				Mã Đơn hàng: <strong>#{{ order._id }}</strong>
 			</p>
-			<p
-				*ngIf="order.status !== 'cancelled'"
-				class="text-sm my-2"
-			>
+			<p *ngIf="order.status !== 'cancelled'" class="text-sm my-2">
 				Ngày đặt: <strong>{{ formatDate(order.createdAt) }}</strong>
 			</p>
-			<p
-				*ngIf="order.status == 'cancelled'"
-				class="text-sm my-2"
-			>
+			<p *ngIf="order.status == 'cancelled'" class="text-sm my-2">
 				Ngày hủy: <strong class="text-red-500">{{ formatDate(order.updatedAt) }}</strong>
 			</p>
 			<button [class]="[checkOrderStatus(order.status)?.class, 'cursor-default']">
@@ -22,16 +16,9 @@
 			</button>
 		</div>
 		<div class="">
-			<select
-				(change)="handleChangeOrderStatus($event)"
-				class="input w-[170px]"
-			>
-				<option
-					*ngFor="let item of status"
-					value="{{ item.value }}"
-					[disabled]="item.disabled"
-					[selected]="item.value == order.status ? true : false"
-				>
+			<select (change)="handleChangeOrderStatus($event)" class="input w-[170px]">
+				<option *ngFor="let item of status" value="{{ item.value }}" [disabled]="item.disabled"
+					[selected]="item.value == order.status ? true : false">
 					{{ item.name }}
 				</option>
 			</select>
@@ -53,16 +40,9 @@
 			<p class="text-sm my-3">Đơn vị vận chuyển: AE Cây Khế</p>
 		</div>
 	</div>
-	<div
-		*ngFor="let product of order.products"
-		class="mt-5 flex items-center"
-	>
+	<div *ngFor="let product of order.products" class="mt-5 flex items-center">
 		<div>
-			<img
-				class="w-[100px] h-[100px] border rounded-md"
-				src="{{ product.images[0] }}"
-				alt=""
-			/>
+			<img class="w-[100px] h-[100px] border rounded-md" src="{{ product.images[0].url }}" alt="" />
 		</div>
 		<div class="w-[800px] ml-5">
 			<p class="text-sm">

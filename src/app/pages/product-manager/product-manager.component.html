@@ -8,12 +8,17 @@
                 <th scope="col" class="px-6 py-3">
                     #
                 </th>
-                <th scope="col" class="px-6 py-3">
-                    tên sản phẩm
+                <th scope="col" class="px-6 py-3 ">
+                    <p>tên sản phẩm</p>
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="px-6 py-3 ">
+                    <div class="items-center flex justify-between">
+                        <p>giá</p>
+                        <button (click)="sortByPrice()">
+                            <img class="w-3 h-3" src="../../../assets/arrow.svg" alt="">
+                        </button>
+                    </div>
 
-                    giá
                 </th>
                 <th scope="col" class="px-6 py-3">
                     ngày tạo
@@ -35,8 +40,8 @@
                 </th>
                 <td class="px-6 py-4">{{ product.name }}</td>
                 <td class="px-6 py-4">{{ product.price?.toLocaleString()}} VND</td>
-                <td class="px-6 py-4">{{ product.createdAt }}</td>
-                <td class="px-6 py-4">{{ product.updatedAt }}</td>
+                <td class="px-6 py-4">{{formatDate(product.createdAt) }}</td>
+                <td class="px-6 py-4">{{formatDate(product.updatedAt) }}</td>
                 <td class="px-6 py-4 flex gap-2">
                     <button class="btn--red" (click)="onRemove(product._id)">Xóa</button>
                     <a routerLink="{{product.slug}}/update"><button class="btn--blue">Cập nhật</button></a>

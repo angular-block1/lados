@@ -15,26 +15,16 @@
 			</div>
 			<div class="flex mt-4 gap-12">
 				<div class="flex-1 flex flex-col gap-4">
-					<div
-						*ngFor="let product of cart?.products"
-						class="flex pb-2 border-b border-gray-300"
-					>
+					<div *ngFor="let product of cart?.products" class="flex pb-2 border-b border-gray-300">
 						<div class="w-[120px] h-[120px] rounded overflow-hidden">
-							<img
-								class="w-full h-auto object-cover"
-								src="{{ product.image }}"
-								alt=""
-							/>
+							<img class="w-full h-auto object-cover" src="{{ product.image.url }}" alt="" />
 						</div>
 						<div class="items-center ml-5 flex w-[643px]">
 							<div class="w-[350px] items-center">
 								<a class="text-sm font-semibold indent-2">{{ product.name }}</a>
 								<div>
-									<button
-										class="text-orange-300"
-										[swal]="['Xóa thành công', '', 'success']"
-										(click)="deleteCart(product.id)"
-									>
+									<button class="text-orange-300" [swal]="['Xóa thành công', '', 'success']"
+										(click)="deleteCart(product.id)">
 										Xóa
 									</button>
 								</div>
@@ -43,12 +33,8 @@
 								<span class="text-orange-300">{{ formatNumber(product.price) }}₫</span>
 							</div>
 							<div class="ml-10">
-								<input
-									type="number"
-									class="border input w-[90px]"
-									value="{{ product.quantity }}"
-									(input)="updateQuantity(product?.id, $event.target)"
-								/>
+								<input type="number" class="border input w-[90px]" value="{{ product.quantity }}"
+									(input)="updateQuantity(product?.id, $event.target)" />
 							</div>
 						</div>
 					</div>
@@ -63,25 +49,13 @@
 						<p class="text-xl font-semibold">{{ formatNumber(bill) }}₫</p>
 					</div>
 					<div class="mt-5">
-						<button
-							type=""
-							class="up w-[290px] h-[50px] border"
-						>
-							<a
-								routerLink="/checkout"
-								class="w-full h-full flex items-center justify-center"
-								>Đặt hàng</a
-							>
+						<button type="" class="up w-[290px] h-[50px] border">
+							<a routerLink="/checkout" class="w-full h-full flex items-center justify-center">Đặt
+								hàng</a>
 						</button>
-						<button
-							type=""
-							class="up w-[290px] h-[50px] border mt-2"
-						>
-							<a
-								routerLink="/"
-								class="w-full h-full flex items-center justify-center"
-								>Tiếp tục mua hàng</a
-							>
+						<button type="" class="up w-[290px] h-[50px] border mt-2">
+							<a routerLink="/" class="w-full h-full flex items-center justify-center">Tiếp tục mua
+								hàng</a>
 						</button>
 					</div>
 				</div>
