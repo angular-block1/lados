@@ -29,22 +29,17 @@
 		<div class="grid grid-cols-4 gap-6 ml-5 flex-1">
 			<div class="text-center items-center overflow-hidden card  mb-2" *ngFor="let product of products">
 				<div class="imgs_product relative">
-					<img
-						class="absolute inset-0 opacity-100 img_product duration-300"
-						src={{product?.images[0]}}
-						alt=""
-					/>
-					<img
-						src={{product?.images[1]}}
-						alt=""
-					/>
+					<img class="absolute inset-0 opacity-100 img_product duration-300" src={{product?.images[0].url}}
+						alt="" />
+					<img src={{product?.images[1].url}} alt="" />
 				</div>
 				<div class="text">
 					<p class="text-xs font-semibold py-2 truncate">{{product.name}}</p>
 					<p class="text-sm pb-2">{{product.price?.toLocaleString()}} VNĐ</p>
 				</div>
 				<div class="text-center btn relative">
-					<button class="bg-white text-black border w-full h-[50px] up" (click)="nextpage(product.slug)">Tùy chọn</button>
+					<button class="bg-white text-black border w-full h-[50px] up" (click)="nextpage(product.slug)">Tùy
+						chọn</button>
 				</div>
 			</div>
 		</div>

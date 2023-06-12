@@ -52,7 +52,7 @@ export class ProductDetailComponent {
       this.productService.getProduct(slug).subscribe(data => {
         this.product = data.data
 
-        this.productService.getProducts({ _category: data.data.category._id }).subscribe(({ data }) => this.products = data)
+        this.productService.getProducts({ _category: data.data.category._id, _limit: 2 }).subscribe(({ data }) => this.products = data)
       })
     })
   }

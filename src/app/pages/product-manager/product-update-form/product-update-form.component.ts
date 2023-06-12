@@ -15,7 +15,8 @@ import slugify from 'slugify';
 export class ProductUpdateFormComponent {
   currentCategory: any
   categories: ICategory[] = []
-  imageURLs: string[] = []
+  imageURLs: any[] = []
+  oldImageURLs: any[] = []
   productForm = this.fb.group({
     name: ['', Validators.required],
     price: ["", [Validators.required, Validators.min(10000)]],
@@ -44,6 +45,7 @@ export class ProductUpdateFormComponent {
           this.productForm?.get('description')?.setValue(data.description, { emitEvent: false })
           this.productForm?.get('category')?.setValue(data.category, { emitEvent: false })
           this.currentCategory = data.category._id
+          this.oldImageURLs = data.images
         })
       }
     })
@@ -62,7 +64,7 @@ export class ProductUpdateFormComponent {
   }
   handleSubmit() {
     if (this.productForm.invalid) return
-    this.productService.createProduct({ ...this.productForm.value, images: [...this.imageURLs] }).subscribe(() => {
+    this.productService.createProduct({ ...this.productForm.value, images: [...this.imageURLs, ...this.oldImageURLs] }).subscribe(() => {
       this.router.navigateByUrl("admin/products")
     })
   }
